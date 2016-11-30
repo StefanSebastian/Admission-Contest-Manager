@@ -27,7 +27,7 @@ public class RepositorySectieSerializable extends RepositorySectie {
     }
 
     /*
-    Incarca sectiile serializate din fisier
+    Loads departments from file
      */
     public void loadData(){
         this.entities.clear();
@@ -41,7 +41,7 @@ public class RepositorySectieSerializable extends RepositorySectie {
     }
 
     /*
-    Salveaza sectiile serializate in fisier
+    Saves departments to file
      */
     public void saveData(){
         try{

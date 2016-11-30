@@ -5,8 +5,8 @@ package Validator;
  */
 public interface IValidator<E> {
     /*
-    Valideaza o entitate
-    Arunca ValidatorException daca entitatea nu e valida
+    Validates an entity
+    Throws ValidatorException if entity is not valid
      */
     public void validate(E entity) throws ValidatorException;
 }

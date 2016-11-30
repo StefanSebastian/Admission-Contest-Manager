@@ -8,7 +8,9 @@ import java.util.Objects;
  * Created by Sebi on 10/18/2016.
  */
 public class ValidatorSectie implements IValidator<Sectie> {
-
+    /*
+    Validates a department
+     */
     @Override
     public void validate(Sectie sectie) throws ValidatorException{
         String errors = "";

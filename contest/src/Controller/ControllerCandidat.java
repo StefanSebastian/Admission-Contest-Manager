@@ -12,7 +12,9 @@ import java.util.function.Predicate;
  * Created by Sebi on 25-Nov-16.
  */
 public class ControllerCandidat extends AbstractController<Candidat, Integer> {
-
+    /*
+    Constructor
+     */
     public ControllerCandidat(IRepository repositoryCandidat){
         super(repositoryCandidat);
     }

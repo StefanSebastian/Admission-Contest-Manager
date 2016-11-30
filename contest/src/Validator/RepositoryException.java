@@ -5,7 +5,8 @@ package Validator;
  */
 public class RepositoryException extends Exception {
     /*
-    Constructor - primeste un mesaj
+    Constructor - gets a message
+    thrown by repository objects
      */
     public RepositoryException(String message){
         super(message);

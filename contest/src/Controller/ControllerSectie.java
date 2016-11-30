@@ -13,7 +13,9 @@ import java.util.function.Predicate;
  * Created by Sebi on 25-Nov-16.
  */
 public class ControllerSectie extends AbstractController<Sectie, Integer> {
-
+    /*
+    Constructor
+     */
     public ControllerSectie(IRepository repositorySectie){
         super(repositorySectie);
     }

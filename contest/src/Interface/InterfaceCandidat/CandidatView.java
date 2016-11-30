@@ -47,6 +47,9 @@ public class CandidatView {
      */
     private CandidatGUIController candidatController;
 
+    /*
+    Constructor - gets reference to data model and entity controller
+     */
     public CandidatView(ObservableList<Candidat> model, ControllerCandidat controller){
         this.model = model;
         candidatController = new CandidatGUIController(controller, this);
@@ -88,12 +91,6 @@ public class CandidatView {
         /*
         When the selected items change
          */
-       /* tabelCandidat.getSelectionModel().getSelectedIndices().addListener(new ListChangeListener<Integer>() {
-            @Override
-            public void onChanged(Change<? extends Integer> c) {
-                candidatController.tableSelectedItemChanged();
-            }
-        }); */
         tabelCandidat.getSelectionModel().getSelectedIndices().addListener(candidatController.handlerSelectionListener());
         return new HBox(tabelCandidat);
     }

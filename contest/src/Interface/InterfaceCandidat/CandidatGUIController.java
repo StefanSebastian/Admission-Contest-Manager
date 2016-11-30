@@ -122,16 +122,6 @@ public class CandidatGUIController {
     /*
     Updates text fields
      */
-    void tableSelectedItemChanged(){
-        if (candidatView.tabelCandidat.getSelectionModel().getSelectedIndex() != -1) {
-            Candidat candidat = candidatView.tabelCandidat.getSelectionModel().getSelectedItem();
-            candidatView.idText.setText(candidat.getId().toString());
-            candidatView.numeText.setText(candidat.getNume());
-            candidatView.adresaText.setText(candidat.getAdresa());
-            candidatView.telefonText.setText(candidat.getTelefon());
-        }
-    }
-
     public ListChangeListener<Integer> handlerSelectionListener(){
         return c -> {
             if (candidatView.tabelCandidat.getSelectionModel().getSelectedIndex() != -1) {

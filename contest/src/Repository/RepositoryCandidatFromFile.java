@@ -26,7 +26,7 @@ public class RepositoryCandidatFromFile extends RepositoryCandidat {
     }
 
     /*
-    Incarca toti candidatii din fisier
+    Loads all candidates from file
      */
     public void loadData(){
         String line;
@@ -49,7 +49,7 @@ public class RepositoryCandidatFromFile extends RepositoryCandidat {
     }
 
     /*
-    Salveaza candidatii in fisier
+    Saves all candidates to file
      */
     public void saveData(){
         try {

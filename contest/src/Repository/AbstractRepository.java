@@ -16,24 +16,33 @@ import java.util.List;
  */
 public abstract class AbstractRepository<E extends HasId<ID>, ID extends Comparable<ID>> extends AbstractObservable<E> implements IRepository<E, ID> {
     /*
-    Validator pentru entitate
+    Entity validator
      */
     private IValidator<E> validator;
 
+    /*
+    Constructor - gets a validator
+     */
     public AbstractRepository(IValidator<E> validator){
         this.validator = validator;
     }
 
     /*
-    Lista de elemente din repository
+    List of entities from repository
      */
     protected List<E> entities = new ArrayList<E>();
 
+    /*
+    Returns the number of entities in repository
+     */
     @Override
     public int size(){
         return entities.size();
     }
 
+    /*
+    Saves an entity in repository
+     */
     @Override
     public void save(E entity) throws RepositoryException, ValidatorException {
         for (E ent : entities){
@@ -46,6 +55,9 @@ public abstract class AbstractRepository<E extends HasId<ID>, ID extends Compara
         notifyObservers();
     }
 
+    /*
+    Updates an entity in repository
+     */
     @Override
     public void update(ID id, E newEntity) throws RepositoryException, ValidatorException {
         if (entities.stream().filter(x -> x.getId().equals(id)).count() != 1){
@@ -63,6 +75,9 @@ public abstract class AbstractRepository<E extends HasId<ID>, ID extends Compara
         notifyObservers();
     }
 
+    /*
+    Deletes an entity from repository
+     */
     @Override
     public void delete(ID id) throws RepositoryException {
         long idCount = entities.stream().filter(x -> x.getId().equals(id)).count();
@@ -73,6 +88,9 @@ public abstract class AbstractRepository<E extends HasId<ID>, ID extends Compara
         notifyObservers();
     }
 
+    /*
+    Returns the entity with the given id, if found in repository
+     */
     @Override
     public E getById(ID id){
         for (E entity : entities){
@@ -83,11 +101,17 @@ public abstract class AbstractRepository<E extends HasId<ID>, ID extends Compara
         return null;
     }
 
+    /*
+    Returns all entities from repository
+     */
     @Override
     public List<E> getAll(){
         return entities;
     }
 
+    /*
+    Removes all entities from repository
+     */
     @Override
     public void clearAll(){
         entities.clear();

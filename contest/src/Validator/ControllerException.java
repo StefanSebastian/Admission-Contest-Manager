@@ -5,7 +5,8 @@ package Validator;
  */
 public class ControllerException extends Exception {
     /*
-    Constructor - primeste un mesaj
+    Constructor - gets a message
+    thrown by controller object
      */
     public ControllerException(String message){
         super(message);

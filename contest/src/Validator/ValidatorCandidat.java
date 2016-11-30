@@ -7,6 +7,10 @@ import Validator.IValidator;
  * Created by Sebi on 10/18/2016.
  */
 public class ValidatorCandidat implements IValidator<Candidat> {
+
+    /*
+    Validates a candidate
+     */
     @Override
     public void validate(Candidat candidat) throws ValidatorException{
         String errors = "";

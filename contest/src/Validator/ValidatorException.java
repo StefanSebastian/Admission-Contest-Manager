@@ -5,7 +5,8 @@ package Validator;
  */
 public class ValidatorException extends Exception {
     /*
-    Constructor - primeste un mesaj
+    Constructor - gets a message
+    thrown by validator objects
      */
     public ValidatorException(String message){
         super(message);

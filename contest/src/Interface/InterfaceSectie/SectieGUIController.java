@@ -1,7 +1,6 @@
 package Interface.InterfaceSectie;
 
 import Controller.ControllerSectie;
-import Domain.Candidat;
 import Domain.Sectie;
 import Utils.Observable;
 import Utils.Observer;
@@ -26,6 +25,9 @@ import java.io.IOException;
  * Created by Sebi on 25-Nov-16.
  */
 public class SectieGUIController implements Observer<Sectie> {
+    /*
+    Widgets used
+     */
     @FXML
     private TableView<Sectie> tableSectii;
     @FXML
@@ -47,17 +49,27 @@ public class SectieGUIController implements Observer<Sectie> {
     @FXML
     private Button buttonUpdate;
 
+    //entity controller
     private ControllerSectie controller;
+
+    //data source
     private ObservableList<Sectie> observableList;
-    private Pane parrentPane;
 
-    public SectieGUIController(){
+    //parent pane
+    private Pane parentPane;
 
-    }
+    /*
+    Constructor
+     */
+    public SectieGUIController(){}
 
-    @FXML
-    public void initialize(ControllerSectie controller, Pane parrentPane){
-        this.parrentPane = parrentPane;
+    /*
+    Initializes the view-controller with an entity controller and the parent pane
+    sets table cell value factories
+    adds a table selection listener
+     */
+    public void initialize(ControllerSectie controller, Pane parentPane){
+        this.parentPane = parentPane;
         this.controller = controller;
         observableList = FXCollections.observableArrayList(controller.getAll());
         tableSectii.setItems(observableList);
@@ -66,29 +78,38 @@ public class SectieGUIController implements Observer<Sectie> {
         numeColumn.setCellValueFactory(new PropertyValueFactory<Sectie, String>("nume"));
         nrLocuriColumn.setCellValueFactory(new PropertyValueFactory<Sectie, Integer>("nrLocuri"));
         idColumn.setCellValueFactory(new PropertyValueFactory<Sectie, Integer>("id"));
-        tableSectii.getSelectionModel().getSelectedIndices().addListener(new ListChangeListener<Integer>() {
-            @Override
-            public void onChanged(Change<? extends Integer> c) {
-                tableSelectionHandler();
+        tableSectii.getSelectionModel().getSelectedIndices().addListener(tableSelectionListener());
+    }
+
+    /*
+    Listener for table selection
+    Updates text fields according to currently selected item
+     */
+    public ListChangeListener<Integer> tableSelectionListener(){
+        return c -> {
+            if (tableSectii.getSelectionModel().getSelectedIndex() != -1){
+                Sectie sectie = tableSectii.getSelectionModel().getSelectedItem();
+                textId.setText(sectie.getId().toString());
+                textNume.setText(sectie.getNume());
+                textNrLocuri.setText(sectie.getNrLocuri().toString());
             }
-        });
+        };
     }
 
-    public void tableSelectionHandler(){
-        if (tableSectii.getSelectionModel().getSelectedIndex() != -1){
-            Sectie sectie = tableSectii.getSelectionModel().getSelectedItem();
-            textId.setText(sectie.getId().toString());
-            textNume.setText(sectie.getNume());
-            textNrLocuri.setText(sectie.getNrLocuri().toString());
-        }
-    }
-
+    /*
+    Observer method implementation
+    For every change in data we update the displayed table list
+     */
     @Override
     public void update(Observable<Sectie> e) {
         observableList.setAll(controller.getAll());
     }
 
 
+    /*
+    Add button handler
+    Creats an add window
+     */
     @FXML
     public void addButtonHandler() throws IOException{
         Stage stage = new Stage();
@@ -106,6 +127,11 @@ public class SectieGUIController implements Observer<Sectie> {
         stage.show();
     }
 
+    /*
+    Update button handler
+    Creates an update window for the currently selected item
+    Throws an exception if no item is selected
+     */
     @FXML
     public void updateButtonHandler() throws IOException{
         try {
@@ -126,7 +152,7 @@ public class SectieGUIController implements Observer<Sectie> {
             stage.setScene(addScene);
             stage.setTitle("Modifica o sectie");
             stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(parrentPane.getScene().getWindow());
+            stage.initOwner(parentPane.getScene().getWindow());
             stage.show();
         } catch (NullPointerException exc){
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -137,6 +163,11 @@ public class SectieGUIController implements Observer<Sectie> {
         }
     }
 
+    /*
+    Delete button handler
+    Tries to delete currently selected item
+    Throws an exception if no item is selected
+     */
     @FXML
     public void deleteButtonHandler() throws IOException {
 
