@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="363.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interface.InterfaceDepartment.DepartmentUpdateViewController">
@@ -10,7 +11,10 @@
       <Label layoutX="62.0" layoutY="43.0" text="Id" />
       <Label layoutX="51.0" layoutY="91.0" text="Name" />
       <Label layoutX="33.0" layoutY="145.0" text="Number of places" />
-      <TextField fx:id="textId" layoutX="151.0" layoutY="39.0" />
+      <TextField fx:id="textId" editable="false" layoutX="151.0" layoutY="39.0">
+         <tooltip>
+            <Tooltip text="You can not edit the Id" />
+         </tooltip></TextField>
       <TextField fx:id="textName" layoutX="151.0" layoutY="87.0" />
       <TextField fx:id="textNrPlaces" layoutX="151.0" layoutY="141.0" />
       <Button fx:id="buttonUpdate" layoutX="22.0" layoutY="198.0" mnemonicParsing="false" onAction="#updateButtonHandler" prefHeight="25.0" prefWidth="104.0" text="Update" />

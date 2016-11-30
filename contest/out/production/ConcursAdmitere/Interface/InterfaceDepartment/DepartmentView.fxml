@@ -53,9 +53,9 @@
                   <Label layoutX="38.0" layoutY="54.0" text="Id" />
                   <Label layoutX="33.0" layoutY="98.0" text="Name" />
                   <Label layoutX="15.0" layoutY="147.0" text="Number of places" />
-                  <TextField fx:id="textId" layoutX="120.0" layoutY="50.0" />
-                  <TextField fx:id="textName" layoutX="120.0" layoutY="94.0" />
-                  <TextField fx:id="textNrPlaces" layoutX="120.0" layoutY="143.0" />
+                  <TextField fx:id="textId" editable="false" layoutX="120.0" layoutY="50.0" />
+                  <TextField fx:id="textName" editable="false" layoutX="120.0" layoutY="94.0" />
+                  <TextField fx:id="textNrPlaces" editable="false" layoutX="120.0" layoutY="143.0" />
                   <Button fx:id="buttonAdd" layoutX="14.0" layoutY="206.0" mnemonicParsing="false" onAction="#addButtonHandler" prefHeight="25.0" prefWidth="71.0" text="Add" />
                   <Button fx:id="buttonDelete" layoutX="105.0" layoutY="206.0" mnemonicParsing="false" onAction="#deleteButtonHandler" prefHeight="25.0" prefWidth="76.0" text="Delete" />
                   <Button fx:id="buttonUpdate" layoutX="195.0" layoutY="206.0" mnemonicParsing="false" onAction="#updateButtonHandler" prefHeight="25.0" prefWidth="72.0" text="Update" />
