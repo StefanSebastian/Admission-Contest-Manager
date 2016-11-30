@@ -92,6 +92,8 @@ public class DepartmentViewController implements Observer<Department> {
                 textId.setText(department.getId().toString());
                 textName.setText(department.getName());
                 textNrPlaces.setText(department.getNumberOfPlaces().toString());
+            } else {
+                clearTextFields();
             }
         };
     }
@@ -177,6 +179,7 @@ public class DepartmentViewController implements Observer<Department> {
                 throw new NullPointerException();
             }
             controller.delete(department.getId().toString());
+            clearTextFields();
         } catch (RepositoryException | ControllerException exc){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning dialog");
@@ -190,5 +193,14 @@ public class DepartmentViewController implements Observer<Department> {
             alert.setContentText("You must select a department");
             alert.showAndWait();
         }
+    }
+
+    /*
+    Clears the values in text fields
+     */
+    private void clearTextFields(){
+        textId.setText("");
+        textName.setText("");
+        textNrPlaces.setText("");
     }
 }

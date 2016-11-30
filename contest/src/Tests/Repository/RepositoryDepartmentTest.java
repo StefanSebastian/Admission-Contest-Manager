@@ -119,9 +119,9 @@ public class RepositoryDepartmentTest {
         Department department = repository.getById(1);
         assertTrue(department.getName().equals("Geografie"));
 
-        Department s3 = new Department(4, "Fizica", 126);
+        Department s3 = new Department(1, "Fizica", 126);
         repository.update(1, s3);
-        department = repository.getById(4);
+        department = repository.getById(1);
         assertTrue(department.getName().equals("Fizica"));
 
     }

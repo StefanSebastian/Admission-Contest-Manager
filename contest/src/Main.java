@@ -1,6 +1,9 @@
+import Controller.ControllerCandidate;
 import Controller.ControllerDepartment;
 import Domain.Candidate;
+import Domain.CandidateDataModel;
 import Domain.Department;
+import Interface.InterfaceCandidate.CandidateView;
 import Interface.InterfaceDepartment.DepartmentViewController;
 import Repository.IRepository;
 import Repository.RepositoryCandidateFromFile;
@@ -9,6 +12,7 @@ import Validator.ValidatorCandidate;
 import Validator.ValidatorDepartment;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -45,7 +49,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-  /*  @Override
+   /* @Override
     public void start(Stage primaryStage) throws Exception {
         ValidatorCandidate validatorCandidat = new ValidatorCandidate();
         IRepository<Candidate, Integer> repositoryCandidat = new RepositoryCandidateFromFile("src/Files/Candidates", validatorCandidat);
@@ -61,5 +65,5 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Candidate manager");
         primaryStage.show();
-    } */
+    }*/
 }

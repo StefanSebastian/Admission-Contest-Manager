@@ -3,12 +3,14 @@ package Interface.InterfaceCandidate;
 import Controller.ControllerCandidate;
 import Domain.Candidate;
 import Validator.ControllerException;
+import Validator.InvalidSelectionException;
 import Validator.RepositoryException;
 import Validator.ValidatorException;
 import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.input.MouseEvent;
 
 
 /**
@@ -39,6 +41,8 @@ public class CandidateViewController {
                         candidateView.textName.getText(),
                         candidateView.textTelephone.getText(),
                         candidateView.textAddress.getText());
+                //clears text fields after successful operation
+                clearTextFields();
             }catch (ValidatorException | RepositoryException | ControllerException exc){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning dialog");
@@ -57,23 +61,29 @@ public class CandidateViewController {
             try {
                 Candidate candidate = candidateView.tableCandidate.getSelectionModel().getSelectedItem();
                 if (candidate == null){
-                    throw new NullPointerException();
+                    throw new InvalidSelectionException("You must select a candidate");
                 }
                 controller.delete(candidate.getId().toString());
-            } catch (RepositoryException | ControllerException exc){
+                //clears the fields
+                clearTextFields();
+            } catch (RepositoryException | ControllerException | InvalidSelectionException exc){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning dialog");
                 alert.setHeaderText("Invalid operation");
                 alert.setContentText(exc.getMessage());
                 alert.showAndWait();
-            } catch (NullPointerException exc){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning dialog");
-                alert.setHeaderText("Invalid operation");
-                alert.setContentText("You must select a candidate");
-                alert.showAndWait();
             }
         };
+    }
+
+    /*
+    Clear all text fields
+     */
+    public void clearTextFields(){
+        candidateView.textAddress.setText("");
+        candidateView.textId.setText("");
+        candidateView.textName.setText("");
+        candidateView.textTelephone.setText("");
     }
 
     /*
@@ -81,10 +91,8 @@ public class CandidateViewController {
      */
     EventHandler<ActionEvent> clearAllButtonHandler(){
         return event -> {
-            candidateView.textAddress.setText("");
-            candidateView.textId.setText("");
-            candidateView.textName.setText("");
-            candidateView.textTelephone.setText("");
+            clearTextFields();
+            candidateView.tableCandidate.getSelectionModel().clearSelection();
         };
     }
 
@@ -97,21 +105,16 @@ public class CandidateViewController {
               //gets the initial values
               Candidate candidate = candidateView.tableCandidate.getSelectionModel().getSelectedItem();
               if (candidate == null) {
-                  throw new NullPointerException();
+                  throw new InvalidSelectionException("You must select a candidate");
               }
-
               //updates if possible
               controller.update(candidate.getId().toString(), candidateView.textId.getText(),
                       candidateView.textName.getText(),
                       candidateView.textTelephone.getText(),
                       candidateView.textAddress.getText());
-          } catch (NullPointerException exc){
-              Alert alert = new Alert(Alert.AlertType.WARNING);
-              alert.setTitle("Warning dialog");
-              alert.setHeaderText("Invalid operation");
-              alert.setContentText("You must select a candidate");
-              alert.showAndWait();
-          } catch (ValidatorException | RepositoryException | ControllerException exc){
+              //clears text fields after successful operation
+              clearTextFields();
+          } catch (ValidatorException | RepositoryException | ControllerException | InvalidSelectionException exc){
               Alert alert = new Alert(Alert.AlertType.WARNING);
               alert.setTitle("Warning dialog");
               alert.setHeaderText("Invalid operation");
@@ -122,17 +125,35 @@ public class CandidateViewController {
     }
 
     /*
-    Updates text fields
+    When selection changes
      */
-    public ListChangeListener<Integer> handlerSelectionListener(){
+    ListChangeListener<Integer> handlerSelectionListener(){
         return c -> {
-            if (candidateView.tableCandidate.getSelectionModel().getSelectedIndex() != -1) {
-                Candidate candidate = candidateView.tableCandidate.getSelectionModel().getSelectedItem();
-                candidateView.textId.setText(candidate.getId().toString());
-                candidateView.textName.setText(candidate.getName());
-                candidateView.textAddress.setText(candidate.getAddress());
-                candidateView.textTelephone.setText(candidate.getTelephone());
-            }
+            loadTextFields();
         };
+    }
+
+    /*
+    When a row is clicked
+     */
+    EventHandler<MouseEvent> rowClickedHandler(){
+        return event -> {
+          loadTextFields();
+        };
+    }
+
+    /*
+    Loads the text fields with the values of the currently selected item
+     */
+    private void loadTextFields(){
+        if (candidateView.tableCandidate.getSelectionModel().getSelectedIndex() != -1) {
+            Candidate candidate = candidateView.tableCandidate.getSelectionModel().getSelectedItem();
+            candidateView.textId.setText(candidate.getId().toString());
+            candidateView.textName.setText(candidate.getName());
+            candidateView.textAddress.setText(candidate.getAddress());
+            candidateView.textTelephone.setText(candidate.getTelephone());
+        } else {
+            clearTextFields();
+        }
     }
 }

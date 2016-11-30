@@ -63,11 +63,8 @@ public abstract class AbstractRepository<E extends HasId<ID>, ID extends Compara
         if (entities.stream().filter(x -> x.getId().equals(id)).count() != 1){
             throw new RepositoryException("The initial id is not valid");
         }
-        long count = entities.stream()
-                .filter(x -> x.getId().equals(newEntity.getId()) && !x.getId().equals(id))
-                .count();
-        if (count != 0){
-            throw new RepositoryException("The new id is already in repository");
+        if (!id.equals(newEntity.getId())){
+            throw new RepositoryException("You can't change the id");
         }
         validator.validate(newEntity);
         this.delete(id);

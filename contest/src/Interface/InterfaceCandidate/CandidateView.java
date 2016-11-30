@@ -91,6 +91,12 @@ public class CandidateView {
         When the selected items change
          */
         tableCandidate.getSelectionModel().getSelectedIndices().addListener(candidateController.handlerSelectionListener());
+
+        /*
+        When a row is clicked
+         */
+        tableCandidate.setOnMouseClicked(candidateController.rowClickedHandler());
+
         return new HBox(tableCandidate);
     }
 

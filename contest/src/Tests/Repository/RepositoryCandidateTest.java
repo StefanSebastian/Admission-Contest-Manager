@@ -120,9 +120,9 @@ public class RepositoryCandidateTest {
         Candidate candidate = repository.getById(1);
         assertTrue(candidate.getName().equals("Gabriel"));
 
-        Candidate c3 = new Candidate(3, "Mihai", "0123345345", "Rozelor 14");
+        Candidate c3 = new Candidate(1, "Mihai", "0123345345", "Rozelor 14");
         repository.update(1, c3);
-        candidate = repository.getById(3);
+        candidate = repository.getById(1);
         assertTrue(candidate.getName().equals("Mihai"));
     }
 
