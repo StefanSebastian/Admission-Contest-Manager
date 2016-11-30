@@ -39,6 +39,9 @@ public class RepositoryCandidateFromFile extends RepositoryCandidate {
                     break;
                 }
                 fields = line.split("\\|");
+                if (fields.length != 4){
+                    throw new RepositoryException("Corrupted file - Candidate must have 4 fields");
+                }
                 Candidate candidate = new Candidate(Integer.parseInt(fields[0]), fields[1], fields[2], fields[3]);
                 this.save(candidate);
             }
