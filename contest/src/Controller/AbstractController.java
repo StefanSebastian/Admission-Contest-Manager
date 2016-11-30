@@ -75,20 +75,20 @@ public abstract class AbstractController<E, ID> {
     }
 
     /*
-    Sortare generica a listei dupa predicat
+    Generic sort, using a comparator
     */
-    public <E> List<E> sortGeneric(List<E> lista, Comparator<E> comparator){
+    public <E> List<E> sortGeneric(List<E> list, Comparator<E> comparator){
         List<E> result = new ArrayList<E>();
-        lista.stream().sorted(comparator).forEach(result::add);
+        list.stream().sorted(comparator).forEach(result::add);
         return result;
     }
 
     /*
-    Filtrare generica a listei dupa predicat
+    Generic filter, using a predicate
      */
-    public <E> List<E> filterGeneric(List<E> lista, Predicate<E> predicate){
+    public <E> List<E> filterGeneric(List<E> list, Predicate<E> predicate){
         List<E> result = new ArrayList<E>();
-        lista.forEach(x -> { if (predicate.test(x)) result.add(x);});
+        list.forEach(x -> { if (predicate.test(x)) result.add(x);});
         return result;
     }
 

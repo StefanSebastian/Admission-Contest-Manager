@@ -47,7 +47,7 @@ public abstract class AbstractRepository<E extends HasId<ID>, ID extends Compara
     public void save(E entity) throws RepositoryException, ValidatorException {
         for (E ent : entities){
             if (ent.getId().equals(entity.getId())){
-                throw new RepositoryException("Acest ID apare deja!");
+                throw new RepositoryException("This id is already in repository");
             }
         }
         validator.validate(entity);
@@ -61,13 +61,13 @@ public abstract class AbstractRepository<E extends HasId<ID>, ID extends Compara
     @Override
     public void update(ID id, E newEntity) throws RepositoryException, ValidatorException {
         if (entities.stream().filter(x -> x.getId().equals(id)).count() != 1){
-            throw new RepositoryException("Id-ul initial nu e valid!");
+            throw new RepositoryException("The initial id is not valid");
         }
         long count = entities.stream()
                 .filter(x -> x.getId().equals(newEntity.getId()) && !x.getId().equals(id))
                 .count();
         if (count != 0){
-            throw new RepositoryException("Id-ul nou apare deja!");
+            throw new RepositoryException("The new id is already in repository");
         }
         validator.validate(newEntity);
         this.delete(id);
@@ -82,7 +82,7 @@ public abstract class AbstractRepository<E extends HasId<ID>, ID extends Compara
     public void delete(ID id) throws RepositoryException {
         long idCount = entities.stream().filter(x -> x.getId().equals(id)).count();
         if (idCount == 0) {
-            throw new RepositoryException("Acest ID nu apare in repository!");
+            throw new RepositoryException("This id is not valid");
         }
         entities.removeIf(e -> e.getId().equals(id));
         notifyObservers();

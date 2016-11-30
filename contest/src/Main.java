@@ -1,18 +1,14 @@
-import Controller.ControllerCandidat;
-import Controller.ControllerSectie;
-import Domain.Candidat;
-import Domain.CandidatDataModel;
-import Domain.Sectie;
-import Interface.InterfaceCandidat.CandidatView;
-import Interface.InterfaceSectie.SectieGUIController;
+import Controller.ControllerDepartment;
+import Domain.Candidate;
+import Domain.Department;
+import Interface.InterfaceDepartment.DepartmentViewController;
 import Repository.IRepository;
-import Repository.RepositoryCandidatFromFile;
-import Repository.RepositorySectieSerializable;
-import Validator.ValidatorCandidat;
-import Validator.ValidatorSectie;
+import Repository.RepositoryCandidateFromFile;
+import Repository.RepositoryDepartmentSerializable;
+import Validator.ValidatorCandidate;
+import Validator.ValidatorDepartment;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -30,38 +26,40 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        IRepository<Sectie, Integer> repositorySectie = new RepositorySectieSerializable("src/Files/Sectii", new ValidatorSectie());
-        IRepository<Candidat, Integer> repositoryCandidat = new RepositoryCandidatFromFile("src/Files/Candidati", new ValidatorCandidat());
-        ControllerSectie controllerSectie = new ControllerSectie(repositorySectie);
+        IRepository<Department, Integer> repositorySectie = new RepositoryDepartmentSerializable("src/Files/Departments",
+                                                                                                new ValidatorDepartment());
+        IRepository<Candidate, Integer> repositoryCandidat = new RepositoryCandidateFromFile("src/Files/Candidates",
+                                                                                                new ValidatorCandidate());
+        ControllerDepartment controllerDepartment = new ControllerDepartment(repositorySectie);
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("Interface/InterfaceSectie/SectieView.fxml"));
+        loader.setLocation(Main.class.getResource("Interface/InterfaceDepartment/DepartmentView.fxml"));
         BorderPane borderPane = loader.load();
 
-        SectieGUIController sectieViewController = loader.getController();
-        sectieViewController.initialize(controllerSectie, borderPane);
+        DepartmentViewController sectieViewController = loader.getController();
+        sectieViewController.initialize(controllerDepartment, borderPane);
 
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Sectie CRUD");
+        primaryStage.setTitle("Department CRUD");
         primaryStage.show();
     }
 
-   /* @Override
+  /*  @Override
     public void start(Stage primaryStage) throws Exception {
-        ValidatorCandidat validatorCandidat = new ValidatorCandidat();
-        IRepository<Candidat, Integer> repositoryCandidat = new RepositoryCandidatFromFile("src/Files/Candidati", validatorCandidat);
-        ValidatorSectie validatorSectie = new ValidatorSectie();
-        IRepository<Sectie, Integer> repositorySectie = new RepositorySectieSerializable("src/Files/Sectii", validatorSectie);
-        ControllerCandidat controllerCandidat = new ControllerCandidat(repositoryCandidat);
-        ControllerSectie controllerSectie = new ControllerSectie(repositorySectie);
+        ValidatorCandidate validatorCandidat = new ValidatorCandidate();
+        IRepository<Candidate, Integer> repositoryCandidat = new RepositoryCandidateFromFile("src/Files/Candidates", validatorCandidat);
+        ValidatorDepartment validatorSectie = new ValidatorDepartment();
+        IRepository<Department, Integer> repositorySectie = new RepositoryDepartmentSerializable("src/Files/Departments", validatorSectie);
+        ControllerCandidate controllerCandidat = new ControllerCandidate(repositoryCandidat);
+        ControllerDepartment controllerSectie = new ControllerDepartment(repositorySectie);
 
-        CandidatDataModel candidatDataModel = new CandidatDataModel(repositoryCandidat);
-        CandidatView candidatView = new CandidatView(candidatDataModel.getModel(), controllerCandidat);
+        CandidateDataModel candidateDataModel = new CandidateDataModel(repositoryCandidat);
+        CandidateView candidatView = new CandidateView(candidateDataModel.getModel(), controllerCandidat);
         Parent parent = candidatView.getView();
         Scene scene = new Scene(parent, 600, 500);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Candidat manager");
+        primaryStage.setTitle("Candidate manager");
         primaryStage.show();
-    }*/
+    } */
 }
