@@ -19,7 +19,7 @@ public class MainWindowController {
     public MainWindowController() {}
 
     public void initialize(Parent departmentsParent, Parent candidatesParent){
-        this.candidatesPane.getChildren().setAll(departmentsParent);
-        this.departmentsPane.getChildren().setAll(candidatesParent);
+        this.candidatesPane.getChildren().setAll(candidatesParent);
+        this.departmentsPane.getChildren().setAll(departmentsParent);
     }
 }

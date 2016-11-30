@@ -3,10 +3,6 @@ package Domain;
 /**
  * Created by Sebi on 10/7/2016.
  */
-
-/**
- * Gestioneaza obiectele tip Candidate
- */
 public class Candidate implements HasId<Integer> {
     private Integer id;
     private String name;

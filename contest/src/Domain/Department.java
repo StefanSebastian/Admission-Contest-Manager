@@ -6,9 +6,6 @@ package Domain;
 
 import java.io.Serializable;
 
-/**
- * Gestioneaza obiectele de tip Department
- */
 public class Department implements HasId<Integer>, Serializable {
     private Integer id;
     private String name;
