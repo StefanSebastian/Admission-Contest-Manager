@@ -101,7 +101,7 @@ public class RepositoryOptionXML extends RepositoryOption {
                 Element opt = doc.createElement("option");
                 rootElement.appendChild(opt);
 
-                opt.setAttribute("id", "1");
+                opt.setAttribute("id", option.getId().toString());
                 opt.appendChild(createElementFromOption(doc, "idCandidate", option.getIdCandidate().toString()));
                 opt.appendChild(createElementFromOption(doc, "idDepartment", option.getIdDepartment().toString()));
             }

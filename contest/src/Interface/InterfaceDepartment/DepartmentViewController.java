@@ -109,7 +109,7 @@ public class DepartmentViewController implements Observer<Department> {
 
     /*
     Add button handler
-    Creats an add window
+    Creates an add window
      */
     @FXML
     public void addButtonHandler() throws IOException{

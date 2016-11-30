@@ -1,8 +1,12 @@
 package Controller;
 
+import Domain.Candidate;
 import Domain.Option;
 import Repository.IRepository;
 import Validator.ControllerException;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Sebi on 30-Nov-16.
@@ -41,5 +45,17 @@ public class ControllerOption extends AbstractController<Option, Integer> {
             throw new ControllerException("Id must be a number");
         }
         return idOption;
+    }
+
+    /*
+    Returns the distinct id's of candidates that have the given department as an option
+     */
+    public List<Integer> candidateIdsForDepartment(Integer departmentId){
+        return getAll()
+                .stream()
+                .filter(x -> x.getIdDepartment().equals(departmentId))
+                .map(Option::getIdCandidate)
+                .distinct()
+                .collect(Collectors.toList());
     }
 }
