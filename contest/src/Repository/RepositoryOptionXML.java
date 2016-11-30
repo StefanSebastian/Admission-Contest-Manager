@@ -36,7 +36,7 @@ public class RepositoryOptionXML extends RepositoryOption {
     Constructor
      */
     public RepositoryOptionXML(String fileName, ValidatorOption validatorOption,
-                               RepositoryCandidate repositoryCandidate, RepositoryDepartment repositoryDepartment){
+                               IRepository repositoryCandidate, IRepository repositoryDepartment){
         super(validatorOption, repositoryCandidate, repositoryDepartment);
         this.fileName = fileName;
         loadData();

@@ -1,26 +1,30 @@
 package Repository;
 
+import Domain.Candidate;
+import Domain.Department;
 import Domain.Option;
 import Validator.RepositoryException;
 import Validator.ValidatorException;
 import Validator.ValidatorOption;
+
+import java.util.List;
 
 /**
  * Created by Sebi on 30-Nov-16.
  */
 public class RepositoryOption extends AbstractRepository<Option, Integer> {
     //candidate repository
-    private RepositoryCandidate repositoryCandidate;
+    private IRepository repositoryCandidate;
 
     //department repository
-    private RepositoryDepartment repositoryDepartment;
+    private IRepository repositoryDepartment;
 
     /*
     Constructor
      */
     public RepositoryOption(ValidatorOption validatorOption,
-                            RepositoryCandidate repositoryCandidate,
-                            RepositoryDepartment repositoryDepartment){
+                            IRepository repositoryCandidate,
+                            IRepository repositoryDepartment){
         super(validatorOption);
         this.repositoryDepartment = repositoryDepartment;
         this.repositoryCandidate = repositoryCandidate;
@@ -38,13 +42,15 @@ public class RepositoryOption extends AbstractRepository<Option, Integer> {
             throw new RepositoryException("This option is already registered");
         }
 
+        List<Candidate> candidates = repositoryCandidate.getAll();
         //valid candidate
-        if (!repositoryCandidate.getAll().stream().anyMatch(x -> x.getId().equals(option.getIdCandidate()))){
+        if (!candidates.stream().anyMatch(x -> x.getId().equals(option.getIdCandidate()))){
             throw new RepositoryException("The candidate id is not valid");
         }
 
+        List<Department> departments = repositoryDepartment.getAll();
         //valid department
-        if (!repositoryDepartment.getAll().stream().anyMatch(x -> x.getId().equals(option.getIdDepartment()))){
+        if (!departments.stream().anyMatch(x -> x.getId().equals(option.getIdDepartment()))){
             throw new RepositoryException("The department id is not valid");
         }
 
@@ -63,13 +69,15 @@ public class RepositoryOption extends AbstractRepository<Option, Integer> {
             throw new RepositoryException("This option is already registered");
         }
 
+        List<Candidate> candidates = repositoryCandidate.getAll();
         //valid candidate
-        if (!repositoryCandidate.getAll().stream().anyMatch(x -> x.getId().equals(option.getIdCandidate()))){
+        if (!candidates.stream().anyMatch(x -> x.getId().equals(option.getIdCandidate()))){
             throw new RepositoryException("The candidate id is not valid");
         }
 
+        List<Department> departments = repositoryDepartment.getAll();
         //valid department
-        if (!repositoryDepartment.getAll().stream().anyMatch(x -> x.getId().equals(option.getIdDepartment()))){
+        if (!departments.stream().anyMatch(x -> x.getId().equals(option.getIdDepartment()))){
             throw new RepositoryException("The department id is not valid");
         }
         super.update(id, option);

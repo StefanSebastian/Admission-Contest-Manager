@@ -2,6 +2,7 @@ package Controller;
 
 import Domain.Candidate;
 import Repository.IRepository;
+import Utils.Observer;
 import Validator.ControllerException;
 
 import java.util.List;
@@ -65,5 +66,12 @@ public class ControllerCandidate extends AbstractController<Candidate, Integer> 
      */
     public List<Candidate> sortCandidatesByName(){
         return sortGeneric(repository.getAll(), (x,y)->x.getName().compareTo(y.getName()));
+    }
+
+    /*
+    Adds an observer for candidates
+     */
+    public void addObserver(Observer E){
+        repository.addObserver(E);
     }
 }

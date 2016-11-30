@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interface.InterfaceOption.OptionsViewController">
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="comboBoxCandidateCRUD" layoutX="25.0" layoutY="111.0" prefWidth="150.0" />
+            <ComboBox fx:id="comboBoxDepartmentCRUD" layoutX="25.0" layoutY="175.0" prefWidth="150.0" />
+            <Label layoutX="24.0" layoutY="83.0" text="Candidate" />
+            <Label layoutX="26.0" layoutY="147.0" text="Department" />
+            <Button fx:id="buttonAdd" layoutX="26.0" layoutY="215.0" mnemonicParsing="false" onAction="#addButtonHandler" prefHeight="25.0" prefWidth="149.0" text="Add" />
+            <Button fx:id="buttonUpdate" layoutX="24.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" text="Update" />
+            <Button fx:id="buttonDelete" layoutX="25.0" layoutY="283.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Remove" />
+            <TextField fx:id="textId" layoutX="25.0" layoutY="43.0" />
+            <Label layoutX="26.0" layoutY="14.0" text="Id" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

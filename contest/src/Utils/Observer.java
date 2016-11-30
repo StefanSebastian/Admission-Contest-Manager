@@ -7,5 +7,5 @@ public interface Observer<E> {
     /*
     Called by observable when the state changes
      */
-    void update(Observable<E> e);
+    void update();
 }

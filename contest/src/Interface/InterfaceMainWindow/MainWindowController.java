@@ -15,11 +15,14 @@ public class MainWindowController {
     AnchorPane candidatesPane;
     @FXML
     AnchorPane departmentsPane;
+    @FXML
+    AnchorPane optionsParent;
 
     public MainWindowController() {}
 
-    public void initialize(Parent departmentsParent, Parent candidatesParent){
+    public void initialize(Parent departmentsParent, Parent candidatesParent, Parent optionParent){
         this.candidatesPane.getChildren().setAll(candidatesParent);
         this.departmentsPane.getChildren().setAll(departmentsParent);
+        this.optionsParent.getChildren().setAll(optionParent);
     }
 }

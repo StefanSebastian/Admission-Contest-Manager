@@ -1,7 +1,6 @@
 package Domain;
 
 import Repository.IRepository;
-import Utils.Observable;
 import Utils.Observer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,7 +41,7 @@ public class CandidateDataModel implements Observer<Candidate> {
     Updates the model when data changes
      */
     @Override
-    public void update(Observable<Candidate> e) {
+    public void update() {
         model.setAll(repository.getAll());
     }
 }

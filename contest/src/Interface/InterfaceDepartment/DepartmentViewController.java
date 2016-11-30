@@ -2,7 +2,6 @@ package Interface.InterfaceDepartment;
 
 import Controller.ControllerDepartment;
 import Domain.Department;
-import Utils.Observable;
 import Utils.Observer;
 import Validator.ControllerException;
 import Validator.RepositoryException;
@@ -103,7 +102,7 @@ public class DepartmentViewController implements Observer<Department> {
     For every change in data we update the displayed table list
      */
     @Override
-    public void update(Observable<Department> e) {
+    public void update() {
         observableList.setAll(controller.getAll());
     }
 

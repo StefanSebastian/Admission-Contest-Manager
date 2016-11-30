@@ -2,9 +2,11 @@ package Interface.InterfaceMainWindow;
 
 import Controller.ControllerCandidate;
 import Controller.ControllerDepartment;
+import Controller.ControllerOption;
 import Domain.CandidateDataModel;
 import Interface.InterfaceCandidate.CandidateView;
 import Interface.InterfaceDepartment.DepartmentViewController;
+import Interface.InterfaceOption.OptionsViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,14 +20,14 @@ import java.io.IOException;
  * Created by Sebi on 30-Nov-16.
  */
 public class InterfaceMain {
-    private Stage primaryStage;
 
     /*
     Initializes windows
      */
-    public InterfaceMain(Stage primaryStage, ControllerCandidate controllerCandidate, CandidateDataModel candidateDataModel,
-                         ControllerDepartment controllerDepartment) throws IOException {
-        this.primaryStage = primaryStage;
+    public InterfaceMain(Stage primaryStage,
+                         ControllerCandidate controllerCandidate, CandidateDataModel candidateDataModel,
+                         ControllerDepartment controllerDepartment,
+                         ControllerOption controllerOption) throws IOException {
 
         //gets the parent of department view
         FXMLLoader loaderDepartment = new FXMLLoader(InterfaceMain.class.getResource("../InterfaceDepartment/DepartmentView.fxml"));
@@ -37,11 +39,17 @@ public class InterfaceMain {
         CandidateView candidateView = new CandidateView(candidateDataModel.getModel(), controllerCandidate);
         BorderPane candidateParent = candidateView.getView();
 
+        //gets the parent of the options view
+        FXMLLoader loaderOption = new FXMLLoader(InterfaceMain.class.getResource("../InterfaceOption/OptionsView.fxml"));
+        BorderPane optionParent = loaderOption.load();
+        OptionsViewController optionsViewController = loaderOption.getController();
+        optionsViewController.initialize(controllerOption, controllerCandidate, controllerDepartment);
+
         //gets the main window view
         FXMLLoader loaderMain = new FXMLLoader(InterfaceMain.class.getResource("MainWindow.fxml"));
         TabPane mainWindowParent = loaderMain.load();
         MainWindowController mainWindowController = loaderMain.getController();
-        mainWindowController.initialize(departmentParent, candidateParent);
+        mainWindowController.initialize(departmentParent, candidateParent, optionParent);
 
         //displays main window
         Scene scene = new Scene(mainWindowParent);
