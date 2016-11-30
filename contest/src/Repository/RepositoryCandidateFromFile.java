@@ -43,7 +43,7 @@ public class RepositoryCandidateFromFile extends RepositoryCandidate {
                     throw new RepositoryException("Corrupted file - Candidate must have 4 fields");
                 }
                 Candidate candidate = new Candidate(Integer.parseInt(fields[0]), fields[1], fields[2], fields[3]);
-                this.save(candidate);
+                super.save(candidate);
             }
             reader.close();
         } catch (IOException | RepositoryException | ValidatorException | NumberFormatException exception) { //corrupted file
