@@ -22,12 +22,12 @@ import static org.junit.Assert.*;
  * Created by Sebi on 30-Nov-16.
  */
 public class RepositoryOptionTest {
-    RepositoryOption repositoryOption;
-    ValidatorOption validatorOption;
-    RepositoryDepartment repositoryDepartment;
-    ValidatorDepartment validatorDepartment;
-    RepositoryCandidate repositoryCandidate;
-    ValidatorCandidate validatorCandidate;
+    private RepositoryOption repositoryOption;
+    private ValidatorOption validatorOption;
+    private RepositoryDepartment repositoryDepartment;
+    private ValidatorDepartment validatorDepartment;
+    private RepositoryCandidate repositoryCandidate;
+    private ValidatorCandidate validatorCandidate;
 
     @Before
     public void setUp() throws Exception {

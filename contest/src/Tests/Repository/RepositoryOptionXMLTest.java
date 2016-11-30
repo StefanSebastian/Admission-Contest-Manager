@@ -25,9 +25,9 @@ import static org.junit.Assert.*;
  * Created by Sebi on 30-Nov-16.
  */
 public class RepositoryOptionXMLTest {
-    RepositoryOptionXML repositoryOption;
-    RepositoryDepartment repositoryDepartment;
-    RepositoryCandidate repositoryCandidate;
+    private RepositoryOptionXML repositoryOption;
+    private RepositoryDepartment repositoryDepartment;
+    private RepositoryCandidate repositoryCandidate;
 
     @Before
     public void setUp() throws Exception {
