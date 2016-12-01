@@ -206,6 +206,11 @@ public class OptionsViewController implements Observer {
 
     }
 
+    @Override
+    public void pushUpdate(Object o) {
+        //ignores push updates
+    }
+
     @FXML
     public void displayCandidatesHandler(){
         if (comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem() == null) {

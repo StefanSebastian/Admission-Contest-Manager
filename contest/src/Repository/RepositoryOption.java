@@ -2,17 +2,20 @@ package Repository;
 
 import Domain.Candidate;
 import Domain.Department;
+import Domain.HasId;
 import Domain.Option;
+import Utils.Observer;
 import Validator.RepositoryException;
 import Validator.ValidatorException;
 import Validator.ValidatorOption;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Sebi on 30-Nov-16.
  */
-public class RepositoryOption extends AbstractRepository<Option, Integer> {
+public class RepositoryOption extends AbstractRepository<Option, Integer> implements Observer<HasId<Integer>> {
     //candidate repository
     private IRepository repositoryCandidate;
 
@@ -28,6 +31,8 @@ public class RepositoryOption extends AbstractRepository<Option, Integer> {
         super(validatorOption);
         this.repositoryDepartment = repositoryDepartment;
         this.repositoryCandidate = repositoryCandidate;
+        repositoryCandidate.addObserver(this);
+        repositoryDepartment.addObserver(this);
     }
 
     /*
@@ -81,5 +86,54 @@ public class RepositoryOption extends AbstractRepository<Option, Integer> {
             throw new RepositoryException("The department id is not valid");
         }
         super.update(id, option);
+    }
+
+    @Override
+    public void update() {
+        //ignores normal updates
+    }
+
+    @Override
+    public void pushUpdate(HasId<Integer> obj) {
+        if (obj instanceof Candidate){
+            Candidate deletedCandidate = (Candidate) obj;
+
+            //gets all options for the deleted candidate
+            List<Integer> toDelete = new ArrayList<>();
+            getAll().stream()
+                    .filter(x -> x.getIdCandidate().equals(deletedCandidate.getId()))
+                    .map(Option::getId)
+                    .forEach(toDelete::add);
+
+            //deletes them
+
+            toDelete.forEach((id) -> {
+                try {
+                    delete(id);
+                } catch (RepositoryException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        if (obj instanceof Department){
+            Department deletedDepartment = (Department) obj;
+
+            //gets all options for the deleted department
+            List<Integer> toDelete = new ArrayList<>();
+            getAll().stream()
+                    .filter(x -> x.getIdDepartment().equals(deletedDepartment.getId()))
+                    .map(Option::getId)
+                    .forEach(toDelete::add);
+
+            //deletes them
+
+            toDelete.forEach((id) -> {
+                try {
+                    delete(id);
+                } catch (RepositoryException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
     }
 }

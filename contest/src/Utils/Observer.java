@@ -8,4 +8,9 @@ public interface Observer<E> {
     Called by observable when the state changes
      */
     void update();
+
+    /*
+    Called by observable when the state changes
+     */
+    void pushUpdate(E e);
 }

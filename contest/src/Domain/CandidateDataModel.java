@@ -44,4 +44,9 @@ public class CandidateDataModel implements Observer<Candidate> {
     public void update() {
         model.setAll(repository.getAll());
     }
+
+    @Override
+    public void pushUpdate(Candidate candidate) {
+        //ignores push updates
+    }
 }

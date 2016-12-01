@@ -106,6 +106,11 @@ public class DepartmentViewController implements Observer<Department> {
         observableList.setAll(controller.getAll());
     }
 
+    @Override
+    public void pushUpdate(Department department) {
+        //ignores push updates
+    }
+
 
     /*
     Add button handler

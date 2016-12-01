@@ -24,45 +24,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OptionsViewController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceOption/OptionsViewController.java">
+      <file leaf-file-name="RepositoryOption.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/RepositoryOption.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="291" column="61" selection-start-line="291" selection-start-column="61" selection-end-line="291" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#tableSelectionListener#0;class#OptionsViewController#0" expanded="false" />
-                <element signature="method#populateComboBoxes#0;class#OptionsViewController#0" expanded="false" />
-                <element signature="method#displayCandidatesHandler#0;class#OptionsViewController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Repository/AbstractRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-147">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControllerDepartment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ControllerDepartment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
-              <folding>
-                <element signature="e#2394#2395#0" expanded="true" />
-                <element signature="e#2435#2436#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Options" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Options" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Files/Options">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -91,16 +63,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Interface/InterfaceCandidat/CandidatView.java" />
-        <option value="$PROJECT_DIR$/src/Domain/CandidatDataModel.java" />
-        <option value="$PROJECT_DIR$/src/Domain/CandidateDataModel.java" />
-        <option value="$PROJECT_DIR$/src/Domain/Sectie.java" />
         <option value="$PROJECT_DIR$/src/Repository/RepositoryCandidat.java" />
-        <option value="$PROJECT_DIR$/src/Repository/RepositoryCandidate.java" />
         <option value="$PROJECT_DIR$/src/Repository/RepositorySectie.java" />
         <option value="$PROJECT_DIR$/src/Repository/RepositoryDepartmentSerializable.java" />
         <option value="$PROJECT_DIR$/src/Controller/ControllerCandidat.java" />
-        <option value="$PROJECT_DIR$/src/Repository/RepositoryDepartment.java" />
         <option value="$PROJECT_DIR$/src/Controller/ControllerSectie.java" />
         <option value="$PROJECT_DIR$/src/Controller/ControllerDepartment.java" />
         <option value="$PROJECT_DIR$/src/Validator/ValidatorCandidate.java" />
@@ -131,17 +97,23 @@
         <option value="$PROJECT_DIR$/src/Tests/Repository/RepositoryOptionXMLTest.java" />
         <option value="$PROJECT_DIR$/src/Tests/Controller/ControllerOptionTest.java" />
         <option value="$PROJECT_DIR$/src/Repository/IRepository.java" />
-        <option value="$PROJECT_DIR$/src/Repository/RepositoryOption.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Interface/InterfaceMainWindow/InterfaceMain.java" />
         <option value="$PROJECT_DIR$/src/Interface/InterfaceMainWindow/MainWindowController.java" />
-        <option value="$PROJECT_DIR$/src/Utils/Observer.java" />
         <option value="$PROJECT_DIR$/src/Controller/ControllerCandidate.java" />
-        <option value="$PROJECT_DIR$/src/Interface/InterfaceDepartment/DepartmentViewController.java" />
         <option value="$PROJECT_DIR$/src/Repository/RepositoryOptionXML.java" />
-        <option value="$PROJECT_DIR$/src/Files/Options" />
         <option value="$PROJECT_DIR$/src/Controller/ControllerOption.java" />
+        <option value="$PROJECT_DIR$/src/Utils/PushObserver.java" />
+        <option value="$PROJECT_DIR$/src/Utils/Observer.java" />
+        <option value="$PROJECT_DIR$/src/Utils/Observable.java" />
+        <option value="$PROJECT_DIR$/src/Utils/AbstractObservable.java" />
         <option value="$PROJECT_DIR$/src/Interface/InterfaceOption/OptionsViewController.java" />
+        <option value="$PROJECT_DIR$/src/Domain/CandidateDataModel.java" />
+        <option value="$PROJECT_DIR$/src/Interface/InterfaceDepartment/DepartmentViewController.java" />
+        <option value="$PROJECT_DIR$/src/Repository/RepositoryCandidate.java" />
+        <option value="$PROJECT_DIR$/src/Repository/RepositoryDepartment.java" />
+        <option value="$PROJECT_DIR$/src/Repository/RepositoryOption.java" />
+        <option value="$PROJECT_DIR$/src/Files/Options" />
       </list>
     </option>
   </component>
@@ -306,10 +278,6 @@
               <option name="myItemId" value="Interface" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InterfaceDepartment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -328,6 +296,10 @@
               <option name="myItemId" value="Interface" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InterfaceCandidate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -344,24 +316,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Files" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -834,7 +788,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32334384" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40063092" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40063092" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -902,43 +856,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Tests/Repository/RepositoryDepartmentSerializableTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Validator/ValidatorCandidate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="31" column="68" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/Validator/ValidatorCandidateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/Validator/ValidatorDepartmentTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="64" column="61" selection-start-line="64" selection-start-column="61" selection-end-line="64" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Validator/ControllerException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="5" selection-start-line="10" selection-start-column="30" selection-end-line="12" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Validator/InvalidSelectionException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -954,24 +871,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceCandidate/CandidateView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1446">
-          <caret line="97" column="80" selection-start-line="97" selection-start-column="80" selection-end-line="97" selection-end-column="80" />
-          <folding>
-            <element signature="method#createCenterPane#0;class#CandidateView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceCandidate/CandidateViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,17 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/RepositoryDepartment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding>
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#357#358#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1166,6 +1054,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1173,13 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="53" selection-start-line="0" selection-start-column="53" selection-end-line="0" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceMainWindow/MainWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -1201,14 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/AbstractObservable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceOption/OptionsView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1220,33 +1094,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/Observable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ControllerCandidate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Files/Options">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="63" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -1256,9 +1107,9 @@
         <state relative-caret-position="156">
           <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1899#1900#0" expanded="true" />
-            <element signature="e#1940#1941#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1899#1900#0" expanded="false" />
+            <element signature="e#1940#1941#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1268,7 +1119,7 @@
         <state relative-caret-position="374">
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
-            <element signature="e#1359#1360#0" expanded="true" />
+            <element signature="e#1359#1360#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1281,18 +1132,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/RepositoryOption.java">
+    <entry file="file://$PROJECT_DIR$/src/Utils/PushObserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/AbstractRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/Utils/AbstractObservable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-147">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/Observable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1302,30 +1169,123 @@
         <state relative-caret-position="286">
           <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
           <folding>
-            <element signature="e#2394#2395#0" expanded="true" />
-            <element signature="e#2435#2436#0" expanded="true" />
+            <element signature="e#2394#2395#0" expanded="false" />
+            <element signature="e#2435#2436#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceCandidate/CandidateView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="97" column="80" selection-start-line="97" selection-start-column="80" selection-end-line="97" selection-end-column="80" />
+          <folding>
+            <element signature="method#createCenterPane#0;class#CandidateView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceCandidate/CandidateViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2465">
+          <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/CandidateDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceDepartment/DepartmentAddViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceDepartment/DepartmentViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="160" column="22" selection-start-line="160" selection-start-column="22" selection-end-line="160" selection-end-column="22" />
+        <state relative-caret-position="292">
+          <caret line="110" column="30" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceMainWindow/MainWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceOption/OptionsViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="291" column="61" selection-start-line="291" selection-start-column="61" selection-end-line="291" selection-end-column="61" />
+        <state relative-caret-position="2006">
+          <caret line="210" column="30" selection-start-line="210" selection-start-column="30" selection-end-line="210" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#tableSelectionListener#0;class#OptionsViewController#0" expanded="false" />
             <element signature="method#populateComboBoxes#0;class#OptionsViewController#0" expanded="false" />
             <element signature="method#displayCandidatesHandler#0;class#OptionsViewController#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/AbstractRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/RepositoryDepartment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/RepositoryCandidate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/RepositoryOption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Files/Options">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="63" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>

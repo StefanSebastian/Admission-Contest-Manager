@@ -18,4 +18,9 @@ public interface Observable<E> {
     Notifies all observers
      */
     void notifyObservers();
+
+    /*
+    Notifies push observers
+     */
+    void notifyPushObservers(E e);
 }

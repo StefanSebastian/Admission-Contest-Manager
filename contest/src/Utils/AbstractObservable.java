@@ -28,4 +28,11 @@ public abstract class AbstractObservable<E> implements Observable<E> {
             o.update();
         }
     }
+
+    @Override
+    public void notifyPushObservers(E e){
+        for (Observer<E> o : observers){
+            o.pushUpdate(e);
+        }
+    }
 }
