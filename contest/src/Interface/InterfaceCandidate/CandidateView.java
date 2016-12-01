@@ -21,11 +21,15 @@ public class CandidateView {
     private Label labelName;
     private Label labelTelephone;
     private Label labelAddress;
+    private Label labelFilterName;
+    private Label labelFilterTelephone;
 
     TextField textId;
     TextField textName;
     TextField textTelephone;
     TextField textAddress;
+    TextField textFilterName;
+    TextField textFilterTelephone;
 
     private Button buttonSave;
     private Button buttonUpdate;
@@ -39,7 +43,7 @@ public class CandidateView {
     /*
     Data source
      */
-    private ObservableList<Candidate> model;
+    public ObservableList<Candidate> model;
 
     /*
     Controller
@@ -135,7 +139,15 @@ public class CandidateView {
         HBox buttonBox = new HBox(buttonSave, buttonDelete, buttonUpdate, buttonClearAll);
         buttonBox.setSpacing(10);
 
-        VBox centerBox = new VBox(gridPane, buttonBox);
+        labelFilterName = new Label("Filter candidates by name:");
+        textFilterName = new TextField();
+        textFilterName.setOnKeyReleased(candidateController.filterNameHandler());
+        labelFilterTelephone = new Label("Filter candidates by telephone:");
+        textFilterTelephone = new TextField();
+        textFilterTelephone.setOnKeyReleased(candidateController.filterTelephoneHandler());
+        VBox filterBox = new VBox(labelFilterName, textFilterName, labelFilterTelephone, textFilterTelephone);
+
+        VBox centerBox = new VBox(gridPane, buttonBox, filterBox);
         centerBox.setSpacing(10);
         centerBox.setPadding(new Insets(20));
         return centerBox;

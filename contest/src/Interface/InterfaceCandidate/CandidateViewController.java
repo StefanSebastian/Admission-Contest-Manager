@@ -10,6 +10,7 @@ import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 
@@ -139,6 +140,34 @@ public class CandidateViewController {
     EventHandler<MouseEvent> rowClickedHandler(){
         return event -> {
           loadTextFields();
+        };
+    }
+
+    /*
+    Filters candidates by name
+     */
+    EventHandler<KeyEvent> filterNameHandler(){
+        return event -> {
+            String name = candidateView.textFilterName.getText();
+            if (name.equals("")){
+                candidateView.model.setAll(controller.getAll());
+            } else {
+                candidateView.model.setAll(controller.candidatesNameStartsWith(name));
+            }
+        };
+    }
+
+    /*
+    Filters candidates by telephone
+     */
+    EventHandler<KeyEvent> filterTelephoneHandler(){
+        return event -> {
+            String telephone = candidateView.textFilterTelephone.getText();
+            if (telephone.equals("")){
+                candidateView.model.setAll(controller.getAll());
+            } else {
+                candidateView.model.setAll(controller.filterCandidatesByTelephone(telephone));
+            }
         };
     }
 
