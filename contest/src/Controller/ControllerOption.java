@@ -3,6 +3,7 @@ package Controller;
 import Domain.Candidate;
 import Domain.Option;
 import Repository.IRepository;
+import Utils.Observer;
 import Validator.ControllerException;
 
 import java.util.List;
@@ -57,5 +58,12 @@ public class ControllerOption extends AbstractController<Option, Integer> {
                 .map(Option::getIdCandidate)
                 .distinct()
                 .collect(Collectors.toList());
+    }
+
+    /*
+    Adds an observer to repo list
+     */
+    public void addObserver(Observer E){
+        repository.addObserver(E);
     }
 }

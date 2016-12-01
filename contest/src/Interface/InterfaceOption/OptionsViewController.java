@@ -69,14 +69,23 @@ public class OptionsViewController implements Observer {
      */
     public void initialize(ControllerOption controllerOption, ControllerCandidate controllerCandidate,
                            ControllerDepartment controllerDepartment){
+        //Controllers
         this.controllerCandidate = controllerCandidate;
         this.controllerDepartment = controllerDepartment;
         this.controllerOption = controllerOption;
 
+        //Observables
         controllerDepartment.addObserver(this);
         controllerCandidate.addObserver(this);
-        populateComboBoxes();
+        controllerOption.addObserver(this);
 
+        //ComboBoxes
+        populateComboBoxes();
+        comboBoxCandidateCRUD.setVisibleRowCount(5);
+        comboBoxDepartmentCRUD.setVisibleRowCount(5);
+        comboBoxDepartmentDisplay.setVisibleRowCount(5);
+
+        //Table
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         candidateObservableList = FXCollections.observableArrayList();
@@ -107,41 +116,95 @@ public class OptionsViewController implements Observer {
     Populates combo boxes
      */
     public void populateComboBoxes(){
-        comboBoxCandidateCRUD.getItems().clear();
-        controllerCandidate.getAll().forEach(x -> comboBoxCandidateCRUD.getItems().add(x.getId() + " " + x.getName()));
+        /*
+        Gets the selected values
+         */
+        String selectedCandidateCRUD = null;
+        String selectedDepartmentCRUD = null;
+        String selectedDepartmentDisplay = null;
+        if (comboBoxCandidateCRUD.getSelectionModel().getSelectedItem() != null){
+            selectedCandidateCRUD = comboBoxCandidateCRUD.getSelectionModel().getSelectedItem().toString();
+        }
+        if (comboBoxDepartmentCRUD.getSelectionModel().getSelectedItem() != null){
+            selectedDepartmentCRUD = comboBoxDepartmentCRUD.getSelectionModel().getSelectedItem().toString();
+        }
+        if (comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem() != null){
+            selectedDepartmentDisplay = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem().toString();
+        }
 
-        comboBoxDepartmentCRUD.getItems().clear();
-        controllerDepartment.getAll().forEach(x -> comboBoxDepartmentCRUD.getItems().add(x.getId() + " " + x.getName()));
+        /*
+        Populates combo boxes with new values
+         */
+        List<String> candidatesCRUD = new ArrayList<>();
+        controllerCandidate.getAll().forEach(x -> candidatesCRUD.add(x.getId() + " " + x.getName()));
+        comboBoxCandidateCRUD.getItems().setAll(candidatesCRUD);
 
-        comboBoxDepartmentDisplay.getItems().clear();
-        controllerDepartment.getAll().forEach(x -> comboBoxDepartmentDisplay.getItems().add(x.getId() + " " + x.getName()));
+        List<String> departmentsCRUD = new ArrayList<>();
+        controllerDepartment.getAll().forEach(x -> departmentsCRUD.add(x.getId() + " " + x.getName()));
+        comboBoxDepartmentCRUD.getItems().setAll(departmentsCRUD);
+
+        List<String> departments = new ArrayList<>();
+        controllerDepartment.getAll().forEach(x -> departments.add(x.getId() + " " + x.getName()));
+        comboBoxDepartmentDisplay.getItems().setAll(departments);
+
+        /*
+        Checks if new values contain old values
+         */
+        if (comboBoxCandidateCRUD.getItems().contains(selectedCandidateCRUD) && selectedCandidateCRUD != null){
+            int index = comboBoxCandidateCRUD.getItems().indexOf(selectedCandidateCRUD);
+            comboBoxCandidateCRUD.getSelectionModel().select(index);
+        } else {
+            comboBoxCandidateCRUD.setValue(null);
+        }
+        if (comboBoxDepartmentCRUD.getItems().contains(selectedDepartmentCRUD) && selectedDepartmentCRUD != null){
+            int index = comboBoxDepartmentCRUD.getItems().indexOf(selectedDepartmentCRUD);
+            comboBoxDepartmentCRUD.getSelectionModel().select(index);
+        } else {
+            comboBoxDepartmentCRUD.setValue(null);
+        }
+        if (comboBoxDepartmentDisplay.getItems().contains(selectedDepartmentDisplay) && selectedDepartmentDisplay != null){
+            int index = comboBoxDepartmentDisplay.getItems().indexOf(selectedDepartmentDisplay);
+            comboBoxDepartmentDisplay.getSelectionModel().select(index);
+        } else {
+            comboBoxDepartmentDisplay.setValue(null);
+        }
     }
 
     @Override
     public void update() {
+        System.out.println("update called");
         populateComboBoxes(); //updates combo boxes
-        if (comboBoxDepartmentDisplay.getSelectionModel().getSelectedIndex() != -1) {
-            displayCandidatesHandler(); //updates table view
-        }
+        displayCandidatesHandler(); //updates table view
+
     }
 
     @FXML
     public void displayCandidatesHandler(){
-        String selectedDepartment = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem().toString();
-        String[] fields = selectedDepartment.split(" ");
-        String idDepartment = fields[0];
+        System.out.println(comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem());
+        if (comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem() == null) {
+            List<Candidate> candidates = new ArrayList<>();
+            candidateObservableList.setAll(candidates);
+        } else {
+            String selectedDepartment = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem().toString();
+            String[] fields = selectedDepartment.split(" ");
+            String idDepartment = fields[0];
 
-        //gets the candidates for the given department
-        List<Integer> candidateIds = controllerOption.candidateIdsForDepartment(Integer.parseInt(idDepartment));
-        List<Candidate> candidates = new ArrayList<>();
-        try {
-            for (Integer id : candidateIds){
-                candidates.add(controllerCandidate.getById(id.toString()));
+            //gets the candidates for the given department
+            List<Integer> candidateIds = controllerOption.candidateIdsForDepartment(Integer.parseInt(idDepartment));
+
+            System.out.println("----------------");
+            candidateIds.forEach(System.out::println);
+            System.out.println("-----------------");
+            List<Candidate> candidates = new ArrayList<>();
+            try {
+                for (Integer id : candidateIds){
+                    candidates.add(controllerCandidate.getById(id.toString()));
+                }
+            } catch (ControllerException exc){
+                exc.printStackTrace();
             }
-        } catch (ControllerException exc){
-            exc.printStackTrace();
+            candidateObservableList.setAll(candidates);
         }
-        candidateObservableList.setAll(candidates);
     }
 
     @FXML
@@ -162,6 +225,9 @@ public class OptionsViewController implements Observer {
             String idDepartment = fields[0];
 
             controllerOption.save(textId.getText(), idCandidate, idDepartment);
+
+            comboBoxCandidateCRUD.setValue(selectedCandidate);
+            comboBoxDepartmentCRUD.setValue(selectedDepartment);
 
         } catch (InvalidSelectionException | ControllerException | RepositoryException | ValidatorException exc){
             Alert alert = new Alert(Alert.AlertType.WARNING);
