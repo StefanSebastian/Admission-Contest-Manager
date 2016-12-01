@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
@@ -32,9 +33,19 @@
                   <TextField fx:id="textId" editable="false" layoutX="120.0" layoutY="50.0" />
                   <TextField fx:id="textName" editable="false" layoutX="120.0" layoutY="94.0" />
                   <TextField fx:id="textNrPlaces" editable="false" layoutX="120.0" layoutY="143.0" />
-                  <Button fx:id="buttonAdd" layoutX="14.0" layoutY="206.0" mnemonicParsing="false" onAction="#addButtonHandler" prefHeight="25.0" prefWidth="71.0" text="Add" />
-                  <Button fx:id="buttonDelete" layoutX="105.0" layoutY="206.0" mnemonicParsing="false" onAction="#deleteButtonHandler" prefHeight="25.0" prefWidth="76.0" text="Delete" />
-                  <Button fx:id="buttonUpdate" layoutX="195.0" layoutY="206.0" mnemonicParsing="false" onAction="#updateButtonHandler" prefHeight="25.0" prefWidth="72.0" text="Update" />
+                  <Button fx:id="buttonAdd" layoutX="14.0" layoutY="187.0" mnemonicParsing="false" onAction="#addButtonHandler" prefHeight="25.0" prefWidth="71.0" text="Add" />
+                  <Button fx:id="buttonDelete" layoutX="101.0" layoutY="187.0" mnemonicParsing="false" onAction="#deleteButtonHandler" prefHeight="25.0" prefWidth="76.0" text="Delete" />
+                  <Button fx:id="buttonUpdate" layoutX="195.0" layoutY="187.0" mnemonicParsing="false" onAction="#updateButtonHandler" prefHeight="25.0" prefWidth="72.0" text="Update" />
+                  <TextField fx:id="textFilterName" layoutX="35.0" layoutY="334.0" onKeyReleased="#filterNameHandler" prefHeight="25.0" prefWidth="178.0">
+                     <tooltip>
+                        <Tooltip text="Filters departments that contain the given name" />
+                     </tooltip></TextField>
+                  <Label layoutX="36.0" layoutY="305.0" text="Filter departments by name:" />
+                  <Label layoutX="33.0" layoutY="239.0" text="Filter department by number of places:" />
+                  <TextField fx:id="textFilterNrPlaces" layoutX="35.0" layoutY="265.0" onKeyReleased="#filterNumberPlacesHandler" prefHeight="25.0" prefWidth="176.0">
+                     <tooltip>
+                        <Tooltip text="Filters the departments that have a number of places greater than the given one" />
+                     </tooltip></TextField>
                </children>
             </AnchorPane>
          </items>

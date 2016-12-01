@@ -47,6 +47,10 @@ public class DepartmentViewController implements Observer<Department> {
     private Button buttonDelete;
     @FXML
     private Button buttonUpdate;
+    @FXML
+    private TextField textFilterName;
+    @FXML
+    private TextField textFilterNrPlaces;
 
     //entity controller
     private ControllerDepartment controller;
@@ -104,6 +108,8 @@ public class DepartmentViewController implements Observer<Department> {
     @Override
     public void update() {
         observableList.setAll(controller.getAll());
+        textFilterNrPlaces.setText("");
+        textFilterName.setText("");
     }
 
     @Override
@@ -206,5 +212,38 @@ public class DepartmentViewController implements Observer<Department> {
         textId.setText("");
         textName.setText("");
         textNrPlaces.setText("");
+    }
+
+    /*
+    Filters departments by name
+     */
+    @FXML
+    public void filterNameHandler(){
+        String name = textFilterName.getText();
+        if (name.equals("")){
+            observableList.setAll(controller.getAll());
+        } else {
+            observableList.setAll(controller.filterDepartmentsByName(name));
+        }
+    }
+
+    /*
+    Filters departments by number of places
+     */
+    @FXML
+    public void filterNumberPlacesHandler(){
+        if (textFilterNrPlaces.getText().equals("")){
+            observableList.setAll(controller.getAll());
+        } else {
+            Tooltip tooltip = new Tooltip();
+            textFilterNrPlaces.setTooltip(tooltip);
+            try {
+                Integer nrPlaces = Integer.parseInt(textFilterNrPlaces.getText());
+                observableList.setAll(controller.filterDepartmentsByNumberOfPlaces(nrPlaces));
+                tooltip.setText("Filters the departments that have a number of places greater than the given one");
+            } catch(NumberFormatException exc){
+                tooltip.setText("You must insert a valid number");
+            }
+        }
     }
 }

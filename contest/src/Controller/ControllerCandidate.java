@@ -46,6 +46,14 @@ public class ControllerCandidate extends AbstractController<Candidate, Integer> 
     }
 
     /*
+    Returns all candidates whose name starts with the given string
+     */
+    public List<Candidate> candidatesNameStartsWith(String name){
+        Predicate<Candidate> nameStartWith = x -> x.getName().startsWith(name);
+        return filterGeneric(repository.getAll(), nameStartWith);
+    }
+
+    /*
     Returns all candidates whose name is equal with the given string
    */
     public List<Candidate> filterCandidatesByName(String name){
