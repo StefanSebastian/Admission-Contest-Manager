@@ -230,6 +230,9 @@ public class OptionsViewController implements Observer {
         }
     }
 
+    /*
+    Adds the item with the id in textbox and values from comboboxes
+     */
     @FXML
     public void addButtonHandler(){
         try {
@@ -257,6 +260,41 @@ public class OptionsViewController implements Observer {
             alert.setTitle("Warning dialog");
             alert.setHeaderText("Invalid operation");
             alert.setContentText(exc.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    /*
+    Updates the selected item
+     */
+    @FXML
+    public void updateButtonHandler(){
+        try {
+            if (candidateTableView.getSelectionModel().getSelectedItem() == null){
+                throw new InvalidSelectionException("You must select a candidate for this department");
+            }
+            //gets the selected option - from table
+            Integer selectedOption = getSelectedOption();
+
+            //gets the selected candidate - from right side
+            String selectedCandidate = comboBoxCandidateCRUD.getSelectionModel().getSelectedItem();
+            String[] fields = selectedCandidate.split(" ");
+            String idCandidate = fields[0];
+
+            //gets the selected department - from right side
+            String selectedDepartment = comboBoxDepartmentCRUD.getSelectionModel().getSelectedItem();
+            fields = selectedDepartment.split(" ");
+            String idDepartment = fields[0];
+
+            //gets the inserted id
+            String idOption = textId.getText();
+
+            controllerOption.update(selectedOption.toString(), idOption, idCandidate, idDepartment);
+        } catch (InvalidSelectionException | ControllerException | RepositoryException | ValidatorException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning dialog");
+            alert.setHeaderText("Invalid operation");
+            alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
     }
