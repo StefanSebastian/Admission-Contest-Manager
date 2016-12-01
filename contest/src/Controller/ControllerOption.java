@@ -6,7 +6,7 @@ import Repository.IRepository;
 import Utils.Observer;
 import Validator.ControllerException;
 
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -65,5 +65,22 @@ public class ControllerOption extends AbstractController<Option, Integer> {
      */
     public void addObserver(Observer E){
         repository.addObserver(E);
+    }
+
+    /*
+    Gets the id of the option that has given idCandidate, idDepartment
+     */
+    public Integer getIdForOption(Integer idCandidate, Integer idDepartment){
+        OptionalInt id =
+                this.getAll()
+                .stream()
+                .filter(x -> x.getIdDepartment().equals(idDepartment) && x.getIdCandidate().equals(idCandidate))
+                .mapToInt(Option::getId)
+                .findFirst();
+        if (id.isPresent()){
+            return id.getAsInt();
+        } else {
+            return -1;
+        }
     }
 }

@@ -27,13 +27,9 @@
       <file leaf-file-name="DepartmentViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceDepartment/DepartmentViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="86" column="34" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#3247#3248#0" expanded="false" />
-                <element signature="e#3305#3306#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="162" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -41,10 +37,28 @@
       <file leaf-file-name="OptionsViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceOption/OptionsViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="166" column="72" selection-start-line="166" selection-start-column="72" selection-end-line="166" selection-end-column="72" />
+            <state relative-caret-position="224">
+              <caret line="274" column="86" selection-start-line="274" selection-start-column="86" selection-end-line="274" selection-end-column="86" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#tableSelectionListener#0;class#OptionsViewController#0" expanded="false" />
+                <element signature="method#populateComboBoxes#0;class#OptionsViewController#0" expanded="false" />
+                <element signature="method#displayCandidatesHandler#0;class#OptionsViewController#0" expanded="false" />
+                <element signature="method#addButtonHandler#0;class#OptionsViewController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControllerOption.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ControllerOption.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1899#1900#0" expanded="true" />
+                <element signature="e#1940#1941#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,8 +154,8 @@
         <option value="$PROJECT_DIR$/src/Controller/ControllerCandidate.java" />
         <option value="$PROJECT_DIR$/src/Interface/InterfaceDepartment/DepartmentViewController.java" />
         <option value="$PROJECT_DIR$/src/Repository/RepositoryOptionXML.java" />
-        <option value="$PROJECT_DIR$/src/Controller/ControllerOption.java" />
         <option value="$PROJECT_DIR$/src/Files/Options" />
+        <option value="$PROJECT_DIR$/src/Controller/ControllerOption.java" />
         <option value="$PROJECT_DIR$/src/Interface/InterfaceOption/OptionsViewController.java" />
       </list>
     </option>
@@ -824,7 +838,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1058,6 +1072,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1259,24 +1274,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceDepartment/DepartmentViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="86" column="34" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3247#3248#0" expanded="false" />
-            <element signature="e#3305#3306#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AbstractController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="e#1359#1360#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Files/Options">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="63" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ControllerOption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1899#1900#0" expanded="true" />
+            <element signature="e#1940#1941#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1292,32 +1315,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ControllerOption.java">
+    <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceDepartment/DepartmentViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="66" column="34" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1902#1903#0" expanded="true" />
-            <element signature="e#1943#1944#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Files/Options">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="63" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
+        <state relative-caret-position="85">
+          <caret line="158" column="12" selection-start-line="158" selection-start-column="12" selection-end-line="162" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interface/InterfaceOption/OptionsViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="166" column="72" selection-start-line="166" selection-start-column="72" selection-end-line="166" selection-end-column="72" />
+        <state relative-caret-position="224">
+          <caret line="274" column="86" selection-start-line="274" selection-start-column="86" selection-end-line="274" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#tableSelectionListener#0;class#OptionsViewController#0" expanded="false" />
+            <element signature="method#populateComboBoxes#0;class#OptionsViewController#0" expanded="false" />
+            <element signature="method#displayCandidatesHandler#0;class#OptionsViewController#0" expanded="false" />
+            <element signature="method#addButtonHandler#0;class#OptionsViewController#0" expanded="false" />
           </folding>
         </state>
       </provider>

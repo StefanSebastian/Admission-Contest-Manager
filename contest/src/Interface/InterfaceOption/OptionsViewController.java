@@ -41,15 +41,15 @@ public class OptionsViewController implements Observer {
     @FXML
     TableView<Candidate> candidateTableView;
     @FXML
-    TableColumn idColumn;
+    TableColumn<Candidate, Integer> idColumn;
     @FXML
-    TableColumn nameColumn;
+    TableColumn<Candidate, String> nameColumn;
     @FXML
-    ComboBox comboBoxCandidateCRUD;
+    ComboBox<String> comboBoxCandidateCRUD;
     @FXML
-    ComboBox comboBoxDepartmentCRUD;
+    ComboBox<String> comboBoxDepartmentCRUD;
     @FXML
-    ComboBox comboBoxDepartmentDisplay;
+    ComboBox<String> comboBoxDepartmentDisplay;
     @FXML
     Button buttonAdd;
     @FXML
@@ -94,20 +94,49 @@ public class OptionsViewController implements Observer {
     }
 
     /*
+    Gets the currently selected option id
+     */
+    private Integer getSelectedOption(){
+        if (candidateTableView.getSelectionModel().getSelectedIndex() != -1){
+            //gets the selected candidate
+            Candidate candidate = candidateTableView.getSelectionModel().getSelectedItem();
+
+            //gets the selected department
+            String selectedDepartment = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem();
+            String[] fields = selectedDepartment.split(" ");
+            String idDepartment = fields[0];
+
+            //gets the option id
+            return controllerOption.getIdForOption(candidate.getId(), Integer.parseInt(idDepartment));
+        }
+        return -1;
+    }
+
+    /*
     Updates id textfield and comboboxes
      */
-    public ListChangeListener<Integer> tableSelectionListener(){
+    private ListChangeListener<Integer> tableSelectionListener(){
         return c -> {
             if (candidateTableView.getSelectionModel().getSelectedIndex() != -1){
                 //gets the selected candidate
                 Candidate candidate = candidateTableView.getSelectionModel().getSelectedItem();
 
                 //gets the selected department
-                String selectedDepartment = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem().toString();
+                String selectedDepartment = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem();
                 String[] fields = selectedDepartment.split(" ");
                 String idDepartment = fields[0];
 
-                //to implement controllerOption id getter
+                //gets the option id
+                Integer idOption = controllerOption.getIdForOption(candidate.getId(), Integer.parseInt(idDepartment));
+
+                //sets right side values
+                textId.setText(idOption.toString());
+                String selectedCandidate = candidate.getId() + " " + candidate.getName();
+                Integer indexCandidate = comboBoxCandidateCRUD.getItems().indexOf(selectedCandidate);
+                Integer indexDepartment = comboBoxDepartmentCRUD.getItems().indexOf(selectedDepartment);
+
+                comboBoxCandidateCRUD.getSelectionModel().select(indexCandidate);
+                comboBoxDepartmentCRUD.getSelectionModel().select(indexDepartment);
             }
         };
     }
@@ -123,13 +152,13 @@ public class OptionsViewController implements Observer {
         String selectedDepartmentCRUD = null;
         String selectedDepartmentDisplay = null;
         if (comboBoxCandidateCRUD.getSelectionModel().getSelectedItem() != null){
-            selectedCandidateCRUD = comboBoxCandidateCRUD.getSelectionModel().getSelectedItem().toString();
+            selectedCandidateCRUD = comboBoxCandidateCRUD.getSelectionModel().getSelectedItem();
         }
         if (comboBoxDepartmentCRUD.getSelectionModel().getSelectedItem() != null){
-            selectedDepartmentCRUD = comboBoxDepartmentCRUD.getSelectionModel().getSelectedItem().toString();
+            selectedDepartmentCRUD = comboBoxDepartmentCRUD.getSelectionModel().getSelectedItem();
         }
         if (comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem() != null){
-            selectedDepartmentDisplay = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem().toString();
+            selectedDepartmentDisplay = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem();
         }
 
         /*
@@ -172,7 +201,6 @@ public class OptionsViewController implements Observer {
 
     @Override
     public void update() {
-        System.out.println("update called");
         populateComboBoxes(); //updates combo boxes
         displayCandidatesHandler(); //updates table view
 
@@ -180,21 +208,16 @@ public class OptionsViewController implements Observer {
 
     @FXML
     public void displayCandidatesHandler(){
-        System.out.println(comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem());
         if (comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem() == null) {
             List<Candidate> candidates = new ArrayList<>();
             candidateObservableList.setAll(candidates);
         } else {
-            String selectedDepartment = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem().toString();
+            String selectedDepartment = comboBoxDepartmentDisplay.getSelectionModel().getSelectedItem();
             String[] fields = selectedDepartment.split(" ");
             String idDepartment = fields[0];
 
             //gets the candidates for the given department
             List<Integer> candidateIds = controllerOption.candidateIdsForDepartment(Integer.parseInt(idDepartment));
-
-            System.out.println("----------------");
-            candidateIds.forEach(System.out::println);
-            System.out.println("-----------------");
             List<Candidate> candidates = new ArrayList<>();
             try {
                 for (Integer id : candidateIds){
@@ -216,11 +239,11 @@ public class OptionsViewController implements Observer {
             if (comboBoxCandidateCRUD.getSelectionModel().getSelectedItem() == null){
                 throw new InvalidSelectionException("You must select a candidate");
             }
-            String selectedCandidate = comboBoxCandidateCRUD.getSelectionModel().getSelectedItem().toString();
+            String selectedCandidate = comboBoxCandidateCRUD.getSelectionModel().getSelectedItem();
             String[] fields = selectedCandidate.split(" ");
             String idCandidate = fields[0];
 
-            String selectedDepartment = comboBoxDepartmentCRUD.getSelectionModel().getSelectedItem().toString();
+            String selectedDepartment = comboBoxDepartmentCRUD.getSelectionModel().getSelectedItem();
             fields = selectedDepartment.split(" ");
             String idDepartment = fields[0];
 
@@ -234,6 +257,26 @@ public class OptionsViewController implements Observer {
             alert.setTitle("Warning dialog");
             alert.setHeaderText("Invalid operation");
             alert.setContentText(exc.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    /*
+    Removes the selected item
+     */
+    @FXML
+    public void removeButtonHandler(){
+        try {
+            if (candidateTableView.getSelectionModel().getSelectedItem() == null){
+                throw new InvalidSelectionException("You must select a candidate for this department");
+            }
+            Integer selectedOption = getSelectedOption();
+            controllerOption.delete(selectedOption.toString());
+        } catch (InvalidSelectionException | ControllerException | RepositoryException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning dialog");
+            alert.setHeaderText("Invalid operation");
+            alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
     }
