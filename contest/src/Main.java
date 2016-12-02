@@ -28,7 +28,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         //repositories
         IRepository<Department, Integer> repositoryDepartment =
-                new RepositoryDepartmentXML("src/Files/DepartmentsXML", new ValidatorDepartment());
+                    new RepositoryDepartmentXML("src/Files/DepartmentsXML", new ValidatorDepartment());
         IRepository<Candidate, Integer> repositoryCandidate =
                 new RepositoryCandidateFromFile("src/Files/Candidates", new ValidatorCandidate());
         IRepository<Option, Integer> repositoryOption =

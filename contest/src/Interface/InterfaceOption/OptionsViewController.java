@@ -81,9 +81,9 @@ public class OptionsViewController implements Observer {
 
         //ComboBoxes
         populateComboBoxes();
-        comboBoxCandidateCRUD.setVisibleRowCount(5);
-        comboBoxDepartmentCRUD.setVisibleRowCount(5);
-        comboBoxDepartmentDisplay.setVisibleRowCount(5);
+        comboBoxCandidateCRUD.setVisibleRowCount(10);
+        comboBoxDepartmentCRUD.setVisibleRowCount(10);
+        comboBoxDepartmentDisplay.setVisibleRowCount(10);
 
         //Table
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -208,7 +208,7 @@ public class OptionsViewController implements Observer {
 
     @Override
     public void pushUpdate(Object o) {
-        //ignores push updates
+        //do nothing
     }
 
     @FXML
