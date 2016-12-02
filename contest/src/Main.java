@@ -6,10 +6,7 @@ import Domain.CandidateDataModel;
 import Domain.Department;
 import Domain.Option;
 import Interface.InterfaceMainWindow.InterfaceMain;
-import Repository.IRepository;
-import Repository.RepositoryCandidateFromFile;
-import Repository.RepositoryDepartmentSerializable;
-import Repository.RepositoryOptionXML;
+import Repository.*;
 import Validator.ValidatorCandidate;
 import Validator.ValidatorDepartment;
 import Validator.ValidatorOption;
@@ -31,7 +28,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         //repositories
         IRepository<Department, Integer> repositoryDepartment =
-                new RepositoryDepartmentSerializable("src/Files/Departments", new ValidatorDepartment());
+                new RepositoryDepartmentXML("src/Files/DepartmentsXML", new ValidatorDepartment());
         IRepository<Candidate, Integer> repositoryCandidate =
                 new RepositoryCandidateFromFile("src/Files/Candidates", new ValidatorCandidate());
         IRepository<Option, Integer> repositoryOption =

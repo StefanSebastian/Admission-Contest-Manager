@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<departments>
+    <department id = '1'>
+        <name>Informatica</name>
+        <numberOfPlaces>123</numberOfPlaces>
+    </department>
+    <department id = '2'>
+            <name>Matematica</name>
+            <numberOfPlaces>80</numberOfPlaces>
+    </department>
+    <department id = '3'>
+            <name>Geografie</name>
+            <numberOfPlaces>22</numberOfPlaces>
+    </department>
+    <department id = '4'>
+            <name>Istorie</name>
+            <numberOfPlaces>24</numberOfPlaces>
+    </department>
+    <department id = '5'>
+            <name>Informatica pedagogica</name>
+            <numberOfPlaces>100</numberOfPlaces>
+    </department>
+</departments>
