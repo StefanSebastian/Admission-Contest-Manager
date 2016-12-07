@@ -67,7 +67,7 @@ public abstract class AbstractRepository<E extends HasId<ID>, ID extends Compara
             throw new RepositoryException("You can't change the id");
         }
         validator.validate(newEntity);
-        this.delete(id);
+        entities.removeIf(x -> x.getId().equals(id));
         entities.add(newEntity);
         notifyObservers();
     }
