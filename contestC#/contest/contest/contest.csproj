@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Domain\Candidate.cs" />
     <Compile Include="Domain\Department.cs" />
+    <Compile Include="Domain\Option.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
