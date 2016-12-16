@@ -158,6 +158,27 @@ namespace contest.Validation.Tests
             }
         }
 
+        /*
+         * Validates null pointer 
+         */
+        [TestMethod()]
+        public void validateInvalidReferenceTest()
+        {
+            CandidateValidator validator = new CandidateValidator();
+            Candidate c = new Candidate(1, "name", "1231231230", "asd 123");
+            c = null;
+            try
+            {
+                validator.validate(c);
+                Assert.IsTrue(false);
+            }
+            catch (ValidatorException exception)
+            {
+                Assert.IsTrue(true);
+                Assert.AreEqual(exception.Message, "Candidate is null pointer");
+            }
+        }
+
 
     }
 }

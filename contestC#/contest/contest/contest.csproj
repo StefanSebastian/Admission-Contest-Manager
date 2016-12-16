@@ -49,8 +49,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\CandidateValidator.cs" />
+    <Compile Include="Validation\DepartmentValidator.cs" />
+    <Compile Include="Validation\OptionValidator.cs" />
     <Compile Include="Validation\Validator.cs" />
-    <Compile Include="Validation\ValidatorException.cs" />
+    <Compile Include="Exceptions\ValidatorException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

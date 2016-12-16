@@ -53,7 +53,10 @@ namespace contest.Domain
         {
             this.candidate = candidate;
             this.department = department;
-            this.id = new Tuple<int, int>(candidate.Id, department.Id);
+            if (candidate != null && department != null)
+            {
+                this.id = new Tuple<int, int>(candidate.Id, department.Id);
+            }
         }
 
         //To string method 

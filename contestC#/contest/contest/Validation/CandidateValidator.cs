@@ -15,6 +15,10 @@ namespace contest.Validation
         public void validate(Candidate candidate)
         {
             string errors = "";
+            if (candidate == null)
+            {
+                throw new ValidatorException("Candidate is null pointer");
+            }
             if (candidate.Id <= 0)
             {
                 errors += "Id must be a positive integer\n";
