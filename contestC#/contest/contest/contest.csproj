@@ -50,11 +50,17 @@
     <Compile Include="Exceptions\RepositoryException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AbstractFileRepository.cs" />
     <Compile Include="Repository\AbstractRepository.cs" />
+    <Compile Include="Repository\CandidateFileRepository.cs" />
     <Compile Include="Repository\CandidateRepository.cs" />
+    <Compile Include="Repository\DepartmentFileRepository.cs" />
     <Compile Include="Repository\DepartmentRepository.cs" />
+    <Compile Include="Repository\IFileRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Validation\CandidateFormatValidator.cs" />
     <Compile Include="Validation\CandidateValidator.cs" />
+    <Compile Include="Validation\DepartmentFormatValidator.cs" />
     <Compile Include="Validation\DepartmentValidator.cs" />
     <Compile Include="Validation\OptionValidator.cs" />
     <Compile Include="Validation\Validator.cs" />

@@ -39,7 +39,7 @@ namespace contest.Repository
          * Throws ValidatorException if entity is not valid
          * Throws RepositoryException if it contains a duplicate id 
          */
-        public void add(E entity)
+        public virtual void add(E entity)
         {
             if (getById(entity.Id) != null)
             {
@@ -53,7 +53,7 @@ namespace contest.Repository
          * Deletes an entity from repository
          * Does not do anything if id is not in repository
          */
-        public void delete(ID id)
+        public virtual void delete(ID id)
         {
             E entity = getById(id);
             if (entity != null)
@@ -92,7 +92,7 @@ namespace contest.Repository
          * Throws RepositoryException if original id is not found 
          * Throws RepositoryException if original id is different from new id 
          */
-        public void update(ID id, E newEntity)
+        public virtual void update(ID id, E newEntity)
         {
             validator.validate(newEntity);
 
