@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AbstractController.cs" />
+    <Compile Include="Controller\CandidateController.cs" />
+    <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Domain\Candidate.cs" />
     <Compile Include="Domain\Department.cs" />
     <Compile Include="Domain\HasID.cs" />

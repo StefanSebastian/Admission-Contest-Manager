@@ -10,7 +10,7 @@ namespace contest.Repository
     /*
      * Interface for repository classes 
      */
-    interface IRepository<E, ID> where E : HasID<ID>
+    public interface IRepository<E, ID> where E : HasID<ID>
                                  where ID : IComparable<ID>
     {
         void add(E entity);

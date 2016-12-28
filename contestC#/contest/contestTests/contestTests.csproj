@@ -51,6 +51,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controller\CandidateControllerTests.cs" />
+    <Compile Include="Controller\DepartmentControllerTests.cs" />
     <Compile Include="Domain\CandidateTests.cs" />
     <Compile Include="Domain\DepartmentTests.cs" />
     <Compile Include="Domain\OptionTests.cs" />
