@@ -43,7 +43,7 @@ namespace contest.Validation
             {
                 errors += "Telephone must contain only digits.\n";
             }
-            if (!candidate.Name.All(c => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
+            if (!candidate.Name.All(c => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == ' ')))
             {
                 errors += "Name must contain only letters.\n";
             }

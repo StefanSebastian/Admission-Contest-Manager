@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace contest.Domain
 {
-    public class Option
+    public class Option : HasID<Tuple<int, int>>
     {
         //attributes
         Tuple<int, int> id;

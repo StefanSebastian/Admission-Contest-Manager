@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace contest.Domain
 {
-    public class Department
+    public class Department : HasID<int>
     {
         //attributes
         private int id;

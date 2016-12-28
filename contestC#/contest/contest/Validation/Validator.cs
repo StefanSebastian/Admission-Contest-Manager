@@ -10,7 +10,7 @@ namespace contest.Validation
      * Validator interface - validates an entity 
      * Throws Validator exception 
      */
-    interface Validator<E>
+    public interface Validator<E>
     {
         void validate(E entity);
     }

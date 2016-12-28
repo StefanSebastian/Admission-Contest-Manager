@@ -55,6 +55,8 @@
     <Compile Include="Domain\DepartmentTests.cs" />
     <Compile Include="Domain\OptionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CandidateRepositoryTests.cs" />
+    <Compile Include="Repository\DepartmentRepositoryTests.cs" />
     <Compile Include="Validation\CandidateValidatorTests.cs" />
     <Compile Include="Validation\DepartmentValidatorTests.cs" />
     <Compile Include="Validation\OptionValidatorTests.cs" />

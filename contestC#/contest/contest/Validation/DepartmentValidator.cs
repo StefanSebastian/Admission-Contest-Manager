@@ -27,7 +27,7 @@ namespace contest.Validation
             {
                 errors += "Name must not be empty.\n";
             }
-            if (!department.Name.All(c => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
+            if (!department.Name.All(c => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' '))
             {
                 errors += "Name must contain only letters.\n";
             }
