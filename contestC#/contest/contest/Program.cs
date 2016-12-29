@@ -36,8 +36,9 @@ namespace contest
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new CandidateView(controllerCandidate));
-            Application.Run(new DepartmentView(controllerDepartment));
+            Application.Run(new HomePage(
+                new CandidateView(controllerCandidate), 
+                new DepartmentView(controllerDepartment)));
         }
     }
 }

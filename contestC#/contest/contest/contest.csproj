@@ -78,6 +78,12 @@
     <Compile Include="UI\DepartmentView.Designer.cs">
       <DependentUpon>DepartmentView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Observer\AbstractObservable.cs" />
     <Compile Include="Utils\Observer\Observable.cs" />
     <Compile Include="Utils\Observer\Observer.cs" />
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DepartmentView.resx">
       <DependentUpon>DepartmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -142,7 +142,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 272);
+            this.ClientSize = new System.Drawing.Size(484, 311);
+            this.ControlBox = false;
             this.Controls.Add(this.buttonClearAll);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonDelete);
@@ -154,8 +155,8 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.labelId);
             this.Controls.Add(this.listBoxDepartments);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DepartmentView";
-            this.Text = "DepartmentView";
             this.ResumeLayout(false);
             this.PerformLayout();
 

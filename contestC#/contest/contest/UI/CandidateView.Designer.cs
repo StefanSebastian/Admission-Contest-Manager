@@ -160,7 +160,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 296);
+            this.ClientSize = new System.Drawing.Size(484, 311);
+            this.ControlBox = false;
             this.Controls.Add(this.buttonClearAll);
             this.Controls.Add(this.listBoxCandidate);
             this.Controls.Add(this.textBoxAddress);
@@ -174,8 +175,8 @@
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CandidateView";
-            this.Text = "CandidateView";
             this.ResumeLayout(false);
             this.PerformLayout();
 
