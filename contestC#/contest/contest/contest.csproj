@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C7EB0801-23ED-41DE-A5E3-873F5A9413AD}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>contest</RootNamespace>
     <AssemblyName>contest</AssemblyName>
@@ -32,9 +32,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +66,15 @@
     <Compile Include="Repository\DepartmentRepository.cs" />
     <Compile Include="Repository\IFileRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="UI\CandidateView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CandidateView.Designer.cs">
+      <DependentUpon>CandidateView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Observer\AbstractObservable.cs" />
+    <Compile Include="Utils\Observer\Observable.cs" />
+    <Compile Include="Utils\Observer\Observer.cs" />
     <Compile Include="Validation\CandidateFormatValidator.cs" />
     <Compile Include="Validation\CandidateValidator.cs" />
     <Compile Include="Validation\DepartmentFormatValidator.cs" />
@@ -72,7 +86,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="UI\CandidateView.resx">
+      <DependentUpon>CandidateView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Candidates.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

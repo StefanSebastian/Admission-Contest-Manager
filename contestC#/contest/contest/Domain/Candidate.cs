@@ -62,6 +62,8 @@ namespace contest.Domain
                 address = value;
             }
         }
+
+        public string IdName => $"{Id} {Name}";
         
         //Constructor 
         public Candidate(int id, string name, string telephone, string address)

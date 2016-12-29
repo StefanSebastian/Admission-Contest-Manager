@@ -1,0 +1,6 @@
+1#Mircea Popescu#0742345345#Cluj Napoca
+2#Sebastian Codon#0655345678#Tg Mures
+3#Maria Uag#0255365671#Oradea
+4#Iulia Macaroana#0322345379#Brasov
+5#Constantin Tin#0252342671#Tg Mures
+6#Controlor#0252342671#Tg Mures

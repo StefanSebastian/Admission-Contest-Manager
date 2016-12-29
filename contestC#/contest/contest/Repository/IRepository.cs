@@ -1,4 +1,5 @@
 ﻿using contest.Domain;
+using contest.Utils.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace contest.Repository
     /*
      * Interface for repository classes 
      */
-    public interface IRepository<E, ID> where E : HasID<ID>
-                                 where ID : IComparable<ID>
+    public interface IRepository<E, ID> : Observable where E : HasID<ID>
+                                                     where ID : IComparable<ID>
     {
         void add(E entity);
         void delete(ID id);

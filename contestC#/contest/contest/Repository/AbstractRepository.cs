@@ -1,5 +1,6 @@
 ﻿using contest.Domain;
 using contest.Exceptions;
+using contest.Utils.Observer;
 using contest.Validation;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace contest.Repository
     /*
      * Abstract repository class 
      */
-    public class AbstractRepository<E, ID> : IRepository<E, ID> where E : HasID<ID>
-                                                                where ID : IComparable<ID>
+    public class AbstractRepository<E, ID> : AbstractObservable, IRepository<E, ID> where E : HasID<ID>
+                                                                                    where ID : IComparable<ID>
     {
         /*
          * List of save entities 
@@ -47,6 +48,7 @@ namespace contest.Repository
             }
             validator.validate(entity);
             entities.Add(entity);
+            notifyObservers();
         }
 
         /*
@@ -59,6 +61,7 @@ namespace contest.Repository
             if (entity != null)
             {
                 entities.Remove(entity);
+                notifyObservers();
             }
         }
 
@@ -108,6 +111,8 @@ namespace contest.Repository
             }
 
             entities[index] = newEntity;
+            notifyObservers();
         }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using contest.Domain;
 using contest.Repository;
+using contest.Utils.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,6 +78,14 @@ namespace contest.Controller
          public List<E> genericFilter(List<E> entities, Predicate<E> filter)
         {
             return entities.FindAll(filter);
+        }
+
+        /*
+         * Adds observer to repository
+         */
+         public void addObserver(Observer e)
+        {
+            repository.addObserver(e);
         }
 
         /*
