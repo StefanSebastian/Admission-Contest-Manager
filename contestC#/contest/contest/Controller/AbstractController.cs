@@ -72,6 +72,14 @@ namespace contest.Controller
         }
 
         /*
+         * Generic filter method
+         */
+         public List<E> genericFilter(List<E> entities, Predicate<E> filter)
+        {
+            return entities.FindAll(filter);
+        }
+
+        /*
          * formats the element 
          */
         public abstract E formatElement(params string[] fields);

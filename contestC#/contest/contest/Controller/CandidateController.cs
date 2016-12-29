@@ -37,5 +37,24 @@ namespace contest.Controller
             CandidateFormatValidator.validateId(id);
             return int.Parse(id);
         }
+
+        /*
+         * Filters the candidates whose names start with the given string 
+         */
+         public List<Candidate> nameStartsWith(string name)
+        {
+            Predicate<Candidate> nameFilter = (x) => x.Name.StartsWith(name);
+            return genericFilter(getAll(), nameFilter);
+        }
+
+        /*
+         * Filter the candidates whose addresses start with the given string
+         */
+         public List<Candidate> addressStartsWith(string name)
+        {
+            Predicate<Candidate> addressFilter = (x) => x.Address.StartsWith(name);
+            return genericFilter(getAll(), addressFilter);
+        }
+
     }
 }

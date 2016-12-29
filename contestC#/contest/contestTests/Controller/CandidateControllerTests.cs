@@ -83,5 +83,37 @@ namespace contest.Controller.Tests
             Candidate c = controller.getById("1");
             Assert.AreEqual(c.Name, "name name");
         }
+
+        [TestMethod()]
+        public void controllerFilterNameTest()
+        {
+            controller.add("1", "name", "1231231231", "ab");
+            controller.add("2", "namuil", "1231231231", "ab");
+            controller.add("3", "alex", "1231231231", "ab");
+            List<Candidate> filteredList = controller.nameStartsWith("nam");
+            Assert.AreEqual(2, filteredList.Count);
+
+            filteredList = controller.nameStartsWith("alex");
+            Assert.AreEqual(1, filteredList.Count);
+
+            filteredList = controller.nameStartsWith("b");
+            Assert.AreEqual(0, filteredList.Count);
+        }
+
+        [TestMethod()]
+        public void controllerFilterAddressTest()
+        {
+            controller.add("1", "name", "1231231231", "ab");
+            controller.add("2", "namuil", "1231231231", "abc");
+            controller.add("3", "alex", "1231231231", "def");
+            List<Candidate> filteredList = controller.addressStartsWith("ab");
+            Assert.AreEqual(2, filteredList.Count);
+
+            filteredList = controller.addressStartsWith("def");
+            Assert.AreEqual(1, filteredList.Count);
+
+            filteredList = controller.addressStartsWith("b");
+            Assert.AreEqual(0, filteredList.Count);
+        }
     }
 }

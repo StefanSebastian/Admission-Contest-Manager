@@ -84,5 +84,39 @@ namespace contest.Controller.Tests
             Department c = controller.getById("1");
             Assert.AreEqual(c.Name, "name name");
         }
+
+        [TestMethod()]
+        public void controllerNameFilterTest()
+        {
+            controller.add("1", "name", "12");
+            controller.add("2", "name name", "45");
+            controller.add("3", "another name", "22");
+
+            List<Department> filteredList = controller.nameContains("name");
+            Assert.AreEqual(3, filteredList.Count);
+
+            filteredList = controller.nameContains("another");
+            Assert.AreEqual(1, filteredList.Count);
+
+            filteredList = controller.nameContains("best");
+            Assert.AreEqual(0, filteredList.Count);
+        }
+
+        [TestMethod()]
+        public void controllerPlacesFilterTest()
+        {
+            controller.add("1", "name", "12");
+            controller.add("2", "name name", "45");
+            controller.add("3", "another name", "22");
+
+            List<Department> filteredList = controller.numberOfPlacesGreaterThan(10);
+            Assert.AreEqual(3, filteredList.Count);
+
+            filteredList = controller.numberOfPlacesGreaterThan(40);
+            Assert.AreEqual(1, filteredList.Count);
+
+            filteredList = controller.numberOfPlacesGreaterThan(200);
+            Assert.AreEqual(0, filteredList.Count);
+        }
     }
 }

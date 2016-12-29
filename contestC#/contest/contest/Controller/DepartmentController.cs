@@ -37,5 +37,23 @@ namespace contest.Controller
             DepartmentFormatValidator.validateId(id);
             return int.Parse(id);
         }
+
+        /*
+         * Filters the departments whose names contain the given string
+         */
+         public List<Department> nameContains(string name)
+        {
+            Predicate<Department> filter = (x) => x.Name.Contains(name);
+            return genericFilter(getAll(), filter);
+        }
+
+        /*
+         * Filters the departments with a number of places greater than the given number
+         */
+         public List<Department> numberOfPlacesGreaterThan(int number)
+        {
+            Predicate<Department> filter = (x) => x.NumberOfPlaces >= number;
+            return genericFilter(getAll(), filter);
+        }
     }
 }
