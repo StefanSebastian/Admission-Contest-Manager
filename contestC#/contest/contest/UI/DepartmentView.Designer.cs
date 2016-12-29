@@ -39,6 +39,10 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonClearAll = new System.Windows.Forms.Button();
+            this.labelFilterName = new System.Windows.Forms.Label();
+            this.textBoxFilterName = new System.Windows.Forms.TextBox();
+            this.labelFilterPlaces = new System.Windows.Forms.Label();
+            this.textBoxFilterPlaces = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBoxDepartments
@@ -81,21 +85,21 @@
             // 
             this.textBoxId.Location = new System.Drawing.Point(257, 13);
             this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxId.Size = new System.Drawing.Size(156, 20);
             this.textBoxId.TabIndex = 4;
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(257, 43);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.Size = new System.Drawing.Size(156, 20);
             this.textBoxName.TabIndex = 5;
             // 
             // textBoxPlaces
             // 
             this.textBoxPlaces.Location = new System.Drawing.Point(257, 75);
             this.textBoxPlaces.Name = "textBoxPlaces";
-            this.textBoxPlaces.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPlaces.Size = new System.Drawing.Size(156, 20);
             this.textBoxPlaces.TabIndex = 6;
             // 
             // buttonAdd
@@ -138,12 +142,50 @@
             this.buttonClearAll.UseVisualStyleBackColor = true;
             this.buttonClearAll.Click += new System.EventHandler(this.buttonClearAll_Click);
             // 
+            // labelFilterName
+            // 
+            this.labelFilterName.AutoSize = true;
+            this.labelFilterName.Location = new System.Drawing.Point(185, 162);
+            this.labelFilterName.Name = "labelFilterName";
+            this.labelFilterName.Size = new System.Drawing.Size(72, 13);
+            this.labelFilterName.TabIndex = 11;
+            this.labelFilterName.Text = "Filter by name";
+            // 
+            // textBoxFilterName
+            // 
+            this.textBoxFilterName.Location = new System.Drawing.Point(188, 178);
+            this.textBoxFilterName.Name = "textBoxFilterName";
+            this.textBoxFilterName.Size = new System.Drawing.Size(225, 20);
+            this.textBoxFilterName.TabIndex = 12;
+            this.textBoxFilterName.TextChanged += new System.EventHandler(this.textBoxFilterName_TextChanged);
+            // 
+            // labelFilterPlaces
+            // 
+            this.labelFilterPlaces.AutoSize = true;
+            this.labelFilterPlaces.Location = new System.Drawing.Point(188, 216);
+            this.labelFilterPlaces.Name = "labelFilterPlaces";
+            this.labelFilterPlaces.Size = new System.Drawing.Size(150, 13);
+            this.labelFilterPlaces.TabIndex = 13;
+            this.labelFilterPlaces.Text = "Number of places greater than";
+            // 
+            // textBoxFilterPlaces
+            // 
+            this.textBoxFilterPlaces.Location = new System.Drawing.Point(188, 233);
+            this.textBoxFilterPlaces.Name = "textBoxFilterPlaces";
+            this.textBoxFilterPlaces.Size = new System.Drawing.Size(225, 20);
+            this.textBoxFilterPlaces.TabIndex = 14;
+            this.textBoxFilterPlaces.TextChanged += new System.EventHandler(this.textBoxFilterPlaces_TextChanged);
+            // 
             // DepartmentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 311);
             this.ControlBox = false;
+            this.Controls.Add(this.textBoxFilterPlaces);
+            this.Controls.Add(this.labelFilterPlaces);
+            this.Controls.Add(this.textBoxFilterName);
+            this.Controls.Add(this.labelFilterName);
             this.Controls.Add(this.buttonClearAll);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonDelete);
@@ -175,5 +217,9 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonClearAll;
+        private System.Windows.Forms.Label labelFilterName;
+        private System.Windows.Forms.TextBox textBoxFilterName;
+        private System.Windows.Forms.Label labelFilterPlaces;
+        private System.Windows.Forms.TextBox textBoxFilterPlaces;
     }
 }

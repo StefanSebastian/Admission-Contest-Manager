@@ -29,7 +29,7 @@ namespace contest.UI
             this.controller.addObserver(this);
 
             //initialize list box
-            updateDataModel();
+            updateDataModel(controller.getAll());
         }
 
         /*
@@ -37,15 +37,15 @@ namespace contest.UI
          */
         public void update()
         {
-            updateDataModel();
+            updateDataModel(controller.getAll());
         }
 
         /*
          * Updates the data model 
          */
-        private void updateDataModel()
+        private void updateDataModel(List<Candidate> list)
         {
-            dataModel = new BindingList<Candidate>(controller.getAll());//binds the model
+            dataModel = new BindingList<Candidate>(list);//binds the model
             listBoxCandidate.DataSource = dataModel;
             listBoxCandidate.DisplayMember = "IdName";
             listBoxCandidate.ValueMember = "Id";
@@ -137,6 +137,36 @@ namespace contest.UI
 
         }
 
-        
+        /*
+         * Filters by name
+         */
+        private void textBoxFilterName_TextChanged(object sender, EventArgs e)
+        {
+            string name = textBoxFilterName.Text;
+            if (name.Equals(""))
+            {
+                updateDataModel(controller.getAll());
+            } else
+            {
+                updateDataModel(controller.nameStartsWith(name));
+            }
+
+        }
+
+        /*
+         * Filters by address
+         */ 
+        private void textBoxFilterAddress_TextChanged(object sender, EventArgs e)
+        {
+            string name = textBoxFilterAddress.Text;
+            if (name.Equals(""))
+            {
+                updateDataModel(controller.getAll());
+            }
+            else
+            {
+                updateDataModel(controller.addressStartsWith(name));
+            }
+        }
     }
 }

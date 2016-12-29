@@ -41,6 +41,10 @@
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.listBoxCandidate = new System.Windows.Forms.ListBox();
             this.buttonClearAll = new System.Windows.Forms.Button();
+            this.labelFilterName = new System.Windows.Forms.Label();
+            this.textBoxFilterName = new System.Windows.Forms.TextBox();
+            this.labelFilterAddres = new System.Windows.Forms.Label();
+            this.textBoxFilterAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonAdd
@@ -77,21 +81,21 @@
             // 
             this.textBoxId.Location = new System.Drawing.Point(298, 21);
             this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxId.Size = new System.Drawing.Size(159, 20);
             this.textBoxId.TabIndex = 4;
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(298, 48);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.Size = new System.Drawing.Size(159, 20);
             this.textBoxName.TabIndex = 5;
             // 
             // textBoxTelephone
             // 
             this.textBoxTelephone.Location = new System.Drawing.Point(298, 75);
             this.textBoxTelephone.Name = "textBoxTelephone";
-            this.textBoxTelephone.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTelephone.Size = new System.Drawing.Size(159, 20);
             this.textBoxTelephone.TabIndex = 6;
             // 
             // labelId
@@ -134,7 +138,7 @@
             // 
             this.textBoxAddress.Location = new System.Drawing.Point(298, 101);
             this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAddress.Size = new System.Drawing.Size(159, 20);
             this.textBoxAddress.TabIndex = 11;
             // 
             // listBoxCandidate
@@ -156,12 +160,50 @@
             this.buttonClearAll.UseVisualStyleBackColor = true;
             this.buttonClearAll.Click += new System.EventHandler(this.buttonClearAll_Click);
             // 
+            // labelFilterName
+            // 
+            this.labelFilterName.AutoSize = true;
+            this.labelFilterName.Location = new System.Drawing.Point(213, 178);
+            this.labelFilterName.Name = "labelFilterName";
+            this.labelFilterName.Size = new System.Drawing.Size(72, 13);
+            this.labelFilterName.TabIndex = 14;
+            this.labelFilterName.Text = "Filter by name";
+            // 
+            // textBoxFilterName
+            // 
+            this.textBoxFilterName.Location = new System.Drawing.Point(216, 194);
+            this.textBoxFilterName.Name = "textBoxFilterName";
+            this.textBoxFilterName.Size = new System.Drawing.Size(241, 20);
+            this.textBoxFilterName.TabIndex = 15;
+            this.textBoxFilterName.TextChanged += new System.EventHandler(this.textBoxFilterName_TextChanged);
+            // 
+            // labelFilterAddres
+            // 
+            this.labelFilterAddres.AutoSize = true;
+            this.labelFilterAddres.Location = new System.Drawing.Point(216, 232);
+            this.labelFilterAddres.Name = "labelFilterAddres";
+            this.labelFilterAddres.Size = new System.Drawing.Size(83, 13);
+            this.labelFilterAddres.TabIndex = 16;
+            this.labelFilterAddres.Text = "Filter by address";
+            // 
+            // textBoxFilterAddress
+            // 
+            this.textBoxFilterAddress.Location = new System.Drawing.Point(216, 248);
+            this.textBoxFilterAddress.Name = "textBoxFilterAddress";
+            this.textBoxFilterAddress.Size = new System.Drawing.Size(241, 20);
+            this.textBoxFilterAddress.TabIndex = 17;
+            this.textBoxFilterAddress.TextChanged += new System.EventHandler(this.textBoxFilterAddress_TextChanged);
+            // 
             // CandidateView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 311);
             this.ControlBox = false;
+            this.Controls.Add(this.textBoxFilterAddress);
+            this.Controls.Add(this.labelFilterAddres);
+            this.Controls.Add(this.textBoxFilterName);
+            this.Controls.Add(this.labelFilterName);
             this.Controls.Add(this.buttonClearAll);
             this.Controls.Add(this.listBoxCandidate);
             this.Controls.Add(this.textBoxAddress);
@@ -196,5 +238,9 @@
         private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.ListBox listBoxCandidate;
         private System.Windows.Forms.Button buttonClearAll;
+        private System.Windows.Forms.Label labelFilterName;
+        private System.Windows.Forms.TextBox textBoxFilterName;
+        private System.Windows.Forms.Label labelFilterAddres;
+        private System.Windows.Forms.TextBox textBoxFilterAddress;
     }
 }

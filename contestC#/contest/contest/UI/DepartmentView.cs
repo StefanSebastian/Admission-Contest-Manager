@@ -32,7 +32,7 @@ namespace contest.UI
             controller.addObserver(this);
 
             //intialize listbox
-            updateDataModel();
+            updateDataModel(controller.getAll());
         }
 
         /*
@@ -40,15 +40,15 @@ namespace contest.UI
          */
         public void update()
         {
-            updateDataModel();
+            updateDataModel(controller.getAll());
         }
 
         /*
         * Updates the data model 
         */
-        private void updateDataModel()
+        private void updateDataModel(List<Department> list)
         {
-            dataModel = new BindingList<Department>(controller.getAll());//binds the model
+            dataModel = new BindingList<Department>(list);//binds the model
             listBoxDepartments.DataSource = dataModel;
             listBoxDepartments.DisplayMember = "IdName";
             listBoxDepartments.ValueMember = "Id";
@@ -139,6 +139,43 @@ namespace contest.UI
             else
             {
                 System.Windows.Forms.MessageBox.Show("You must select a candidate.");
+            }
+        }
+
+        /*
+         * Filters by name
+         */
+        private void textBoxFilterName_TextChanged(object sender, EventArgs e)
+        {
+            string name = textBoxFilterName.Text;
+            if (name.Equals(""))
+            {
+                updateDataModel(controller.getAll());
+            } else
+            {
+                updateDataModel(controller.nameContains(name));
+            }
+        }
+
+        /*
+         * Filters by number of places 
+         */
+        private void textBoxFilterPlaces_TextChanged(object sender, EventArgs e)
+        {
+            string places = textBoxFilterPlaces.Text;
+            if (places.Equals(""))
+            {
+                updateDataModel(controller.getAll());
+            }
+            else
+            {
+                try {
+                    updateDataModel(controller.numberOfPlacesGreaterThan(int.Parse(places)));
+                } catch(FormatException exc)
+                {
+                    
+                }
+                
             }
         }
     }
