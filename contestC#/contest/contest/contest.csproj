@@ -72,6 +72,12 @@
     <Compile Include="UI\CandidateView.Designer.cs">
       <DependentUpon>CandidateView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\DepartmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DepartmentView.Designer.cs">
+      <DependentUpon>DepartmentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Observer\AbstractObservable.cs" />
     <Compile Include="Utils\Observer\Observable.cs" />
     <Compile Include="Utils\Observer\Observer.cs" />
@@ -90,9 +96,15 @@
     <EmbeddedResource Include="UI\CandidateView.resx">
       <DependentUpon>CandidateView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\DepartmentView.resx">
+      <DependentUpon>DepartmentView.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Candidates.txt" />
+    <Content Include="Data\Departments.txt">
+      <SubType>Form</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

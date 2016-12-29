@@ -30,9 +30,14 @@ namespace contest
             CandidateFileRepository repositoryCandidate = new CandidateFileRepository(validatorCandidate, "../../Data/Candidates.txt");
             CandidateController controllerCandidate = new CandidateController(repositoryCandidate);
 
+            DepartmentValidator validatorDepartment = new DepartmentValidator();
+            DepartmentFileRepository repositoryDepartment = new DepartmentFileRepository(validatorDepartment, "../../Data/Departments.txt");
+            DepartmentController controllerDepartment = new DepartmentController(repositoryDepartment);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CandidateView(controllerCandidate));
+            // Application.Run(new CandidateView(controllerCandidate));
+            Application.Run(new DepartmentView(controllerDepartment));
         }
     }
 }

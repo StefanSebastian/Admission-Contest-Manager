@@ -63,7 +63,7 @@ namespace contest.Domain
             }
         }
 
-        public string IdName => $"{Id} {Name}";
+        public string IdName => $"{Id} {Name}"; //read only property
         
         //Constructor 
         public Candidate(int id, string name, string telephone, string address)

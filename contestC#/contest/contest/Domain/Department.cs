@@ -53,6 +53,8 @@ namespace contest.Domain
             }
         }
 
+        public string IdName => $"{Id} {Name}"; //read only property
+
         //Constructor
         public Department(int id, string name, int numberOfPlaces)
         {

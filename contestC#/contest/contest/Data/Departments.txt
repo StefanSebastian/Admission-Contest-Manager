@@ -1,0 +1,5 @@
+1#Informatica #120
+2#Matematica#80
+3#Fizica#77
+4#Istorie#44
+5#Marketing#63
