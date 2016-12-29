@@ -1,6 +1,8 @@
 ﻿using contest.Controller;
 using contest.Domain;
+using contest.Exceptions;
 using contest.Utils.Observer;
+using contest.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,7 +82,16 @@ namespace contest.UI
          */
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            controller.add(textBoxId.Text, textBoxName.Text, textBoxTelephone.Text, textBoxAddress.Text);
+            try
+            {
+                controller.add(textBoxId.Text, textBoxName.Text, textBoxTelephone.Text, textBoxAddress.Text);
+            } catch (ValidatorException exc)
+            {
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            } catch (RepositoryException exc)
+            {
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+            }
         }
 
         /*
@@ -92,6 +103,9 @@ namespace contest.UI
             {
                 Candidate candidate = (Candidate)listBoxCandidate.SelectedItem;
                 controller.delete(candidate.Id.ToString());
+            } else
+            {
+                System.Windows.Forms.MessageBox.Show("You must select a candidate.");
             }
         }
 
@@ -102,9 +116,23 @@ namespace contest.UI
         {
             if (listBoxCandidate.SelectedIndex != -1)
             {
-                Candidate candidate = (Candidate)listBoxCandidate.SelectedItem;
-                controller.update(candidate.Id.ToString(),
-                    textBoxId.Text, textBoxName.Text, textBoxTelephone.Text, textBoxAddress.Text);
+                try
+                {
+                    Candidate candidate = (Candidate)listBoxCandidate.SelectedItem;
+                    controller.update(candidate.Id.ToString(),
+                        textBoxId.Text, textBoxName.Text, textBoxTelephone.Text, textBoxAddress.Text);
+                }
+                catch (ValidatorException exc)
+                {
+                    System.Windows.Forms.MessageBox.Show(exc.Message);
+                }
+                catch (RepositoryException exc)
+                {
+                    System.Windows.Forms.MessageBox.Show(exc.Message);
+                }
+            } else
+            {
+                System.Windows.Forms.MessageBox.Show("You must select a candidate.");
             }
 
         }

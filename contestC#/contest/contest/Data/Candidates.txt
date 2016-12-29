@@ -3,4 +3,4 @@
 3#Maria Uag#0255365671#Oradea
 4#Iulia Macaroana#0322345379#Brasov
 5#Constantin Tin#0252342671#Tg Mures
-6#Controlor#0252342671#Tg Mures
+6#Contr#0252342123#Tg Mures
