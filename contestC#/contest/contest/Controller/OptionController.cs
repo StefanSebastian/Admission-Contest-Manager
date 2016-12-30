@@ -39,5 +39,21 @@ namespace contest.Controller
             string[] tokens = id.Split(' ');
             return new Pair<int, int>(int.Parse(tokens[0]), int.Parse(tokens[1]));
         }
+
+        /*
+         * Returns a list of id's of candidates from a department
+         */
+         public List<int> candidatesForDepartment(int idDepartment)
+        {
+            List<int> idCandidates = new List<int>();
+            foreach (Option o in getAll())
+            {
+                if (o.IdDepartment.Equals(idDepartment))
+                {
+                    idCandidates.Add(o.IdCandidate);
+                }
+            }
+            return idCandidates;
+        }
     }
 }

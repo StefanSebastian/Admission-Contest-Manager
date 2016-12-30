@@ -2,5 +2,4 @@
 2#Sebastian Codon#0655345678#Tg Mures
 3#Maria Uag#0255365671#Oradea
 4#Iulia Macaroana#0322345379#Brasov
-7#Tucanel Tucanelovici#0742345345#Tg Mures
-5#Florin Mezel#0742345345#Cluj Napoca
+7#Tuca Tucanelovici#0742345345#Tg Mures

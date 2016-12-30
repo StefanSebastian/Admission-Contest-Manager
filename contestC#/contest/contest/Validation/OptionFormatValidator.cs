@@ -23,11 +23,11 @@ namespace contest.Validation
                 int idInt1 = int.Parse(id1);
                 int idInt2 = int.Parse(id2);
             }
-            catch (FormatException exc)
+            catch (FormatException)
             {
                 throw new ValidatorException("Invalid format.");
             }
-            catch (ArgumentNullException exc)
+            catch (ArgumentNullException)
             {
                 throw new ValidatorException("Invalid format.");
             }
@@ -48,11 +48,11 @@ namespace contest.Validation
                 int idInt1 = int.Parse(id1);
                 int idInt2 = int.Parse(id2);
             }
-            catch (FormatException exc)
+            catch (FormatException)
             {
                 throw new ValidatorException("Invalid format.");
             }
-            catch (ArgumentNullException exc)
+            catch (ArgumentNullException)
             {
                 throw new ValidatorException("Invalid format.");
             }

@@ -77,5 +77,10 @@ namespace contest.Domain
             Option o = (Option)obj;
             return id.Equals(o.id);
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

@@ -74,5 +74,10 @@ namespace contest.Utils.Pair
             }
             return this.First.CompareTo(other.First);
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

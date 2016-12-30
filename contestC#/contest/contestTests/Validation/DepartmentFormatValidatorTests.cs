@@ -19,7 +19,7 @@ namespace contest.Validation.Tests
                 DepartmentFormatValidator.validateFormat("a", "sds", "12");
                 Assert.IsFalse(false);
             }
-            catch (ValidatorException exc)
+            catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }
@@ -33,7 +33,7 @@ namespace contest.Validation.Tests
                 DepartmentFormatValidator.validateFormat("1", "sds", "12");
                 Assert.IsFalse(false);
             }
-            catch (ValidatorException exc)
+            catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }
@@ -47,7 +47,7 @@ namespace contest.Validation.Tests
                 DepartmentFormatValidator.validateFormat("1", "sds", "012");
                 Assert.IsFalse(false);
             }
-            catch (ValidatorException exc)
+            catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }
@@ -61,7 +61,7 @@ namespace contest.Validation.Tests
                 DepartmentFormatValidator.validateFormat("1", "sds", "");
                 Assert.IsFalse(false);
             }
-            catch (ValidatorException exc)
+            catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }

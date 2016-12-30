@@ -83,5 +83,10 @@ namespace contest.Domain
             Department d = (Department)obj;
             return id == d.id;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

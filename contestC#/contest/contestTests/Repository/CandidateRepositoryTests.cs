@@ -111,7 +111,7 @@ namespace contest.Repository.Tests
             {
                 repository.add(c1);
                 Assert.IsTrue(false);
-            } catch(RepositoryException exc)
+            } catch(RepositoryException)
             {
                 Assert.IsTrue(true);
             }
@@ -127,7 +127,7 @@ namespace contest.Repository.Tests
                 repository.add(c);
                 Assert.IsTrue(false);
             }
-            catch (ValidatorException exc)
+            catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }
@@ -145,7 +145,7 @@ namespace contest.Repository.Tests
                 repository.update(1, c1);
                 Assert.IsTrue(false);
             }
-            catch (RepositoryException exc)
+            catch (RepositoryException)
             {
                 Assert.IsTrue(true);
             }
@@ -163,7 +163,7 @@ namespace contest.Repository.Tests
                 repository.update(3, c1);
                 Assert.IsTrue(false);
             }
-            catch (RepositoryException exc)
+            catch (RepositoryException)
             {
                 Assert.IsTrue(true);
             }
@@ -181,7 +181,7 @@ namespace contest.Repository.Tests
                 repository.update(1, c1);
                 Assert.IsTrue(false);
             }
-            catch (ValidatorException exc)
+            catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }

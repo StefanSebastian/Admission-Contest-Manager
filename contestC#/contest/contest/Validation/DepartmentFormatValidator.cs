@@ -21,11 +21,11 @@ namespace contest.Validation
                 int idInt = int.Parse(id);
                 int nrPlacesInt = int.Parse(nrPlaces);
             }
-            catch (FormatException exc)
+            catch (FormatException)
             {
                 throw new ValidatorException("Invalid format.");
             }
-            catch (ArgumentNullException exc)
+            catch (ArgumentNullException)
             {
                 throw new ValidatorException("Invalid format.");
             }
@@ -37,11 +37,11 @@ namespace contest.Validation
             {
                 int idInt = int.Parse(id);
             }
-            catch (FormatException exc)
+            catch (FormatException)
             {
                 throw new ValidatorException("Invalid format.");
             }
-            catch (ArgumentNullException exc)
+            catch (ArgumentNullException)
             {
                 throw new ValidatorException("Invalid format.");
             }

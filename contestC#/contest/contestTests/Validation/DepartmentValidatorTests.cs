@@ -24,7 +24,7 @@ namespace contest.Validation.Tests
             {
                 validator.validate(department);
                 Assert.IsTrue(true);
-            } catch(ValidatorException exc)
+            } catch(ValidatorException)
             {
                 Assert.IsTrue(false);
             }

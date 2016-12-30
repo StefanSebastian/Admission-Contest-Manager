@@ -18,7 +18,7 @@ namespace contest.Validation.Tests
             {
                 CandidateFormatValidator.validateFormat("a", "sds", "0732232232", "asdsa");
                 Assert.IsFalse(false);
-            } catch (ValidatorException exc)
+            } catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }
@@ -32,7 +32,7 @@ namespace contest.Validation.Tests
                 CandidateFormatValidator.validateFormat("2", "sds", "0732232232", "asdsa");
                 Assert.IsFalse(false);
             }
-            catch (ValidatorException exc)
+            catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }

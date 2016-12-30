@@ -61,8 +61,8 @@ namespace contest.Repository
             if (entity != null)
             {
                 entities.Remove(entity);
-                notifyObservers();
                 notifyPushObservers(entity);
+                notifyObservers();
             }
         }
 

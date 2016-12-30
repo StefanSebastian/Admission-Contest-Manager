@@ -54,7 +54,7 @@ namespace contest.Controller.Tests
                 Department d = controller.formatElement("a1", "name", "12");
                 Assert.IsTrue(false);
             }
-            catch (ValidatorException exc)
+            catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }
@@ -68,7 +68,7 @@ namespace contest.Controller.Tests
                 int id = controller.formatId("");
                 Assert.IsTrue(false);
             }
-            catch (ValidatorException exc)
+            catch (ValidatorException)
             {
                 Assert.IsTrue(true);
             }

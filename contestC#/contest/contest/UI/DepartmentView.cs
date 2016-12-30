@@ -171,7 +171,7 @@ namespace contest.UI
             {
                 try {
                     updateDataModel(controller.numberOfPlacesGreaterThan(int.Parse(places)));
-                } catch(FormatException exc)
+                } catch(FormatException)
                 {
                     
                 }

@@ -83,7 +83,7 @@ namespace contest.Controller.Tests
             {
                 controller.add("1", "3");
                 Assert.IsTrue(false);
-            } catch (RepositoryException exc)
+            } catch (RepositoryException)
             {
                 Assert.IsTrue(true);
             }

@@ -94,5 +94,10 @@ namespace contest.Domain
             Candidate c = (Candidate)obj;
             return id == c.id;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
