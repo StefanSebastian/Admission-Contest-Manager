@@ -31,6 +31,7 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageCandidates = new System.Windows.Forms.TabPage();
             this.tabPageDepartments = new System.Windows.Forms.TabPage();
+            this.tabPageOptions = new System.Windows.Forms.TabPage();
             this.tabControlMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,6 +39,7 @@
             // 
             this.tabControlMain.Controls.Add(this.tabPageCandidates);
             this.tabControlMain.Controls.Add(this.tabPageDepartments);
+            this.tabControlMain.Controls.Add(this.tabPageOptions);
             this.tabControlMain.Location = new System.Drawing.Point(3, 12);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
@@ -59,10 +61,20 @@
             this.tabPageDepartments.Location = new System.Drawing.Point(4, 22);
             this.tabPageDepartments.Name = "tabPageDepartments";
             this.tabPageDepartments.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDepartments.Size = new System.Drawing.Size(497, 248);
+            this.tabPageDepartments.Size = new System.Drawing.Size(497, 342);
             this.tabPageDepartments.TabIndex = 1;
             this.tabPageDepartments.Text = "Departments";
             this.tabPageDepartments.UseVisualStyleBackColor = true;
+            // 
+            // tabPageOptions
+            // 
+            this.tabPageOptions.Location = new System.Drawing.Point(4, 22);
+            this.tabPageOptions.Name = "tabPageOptions";
+            this.tabPageOptions.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageOptions.Size = new System.Drawing.Size(497, 342);
+            this.tabPageOptions.TabIndex = 2;
+            this.tabPageOptions.Text = "Options";
+            this.tabPageOptions.UseVisualStyleBackColor = true;
             // 
             // HomePage
             // 
@@ -83,5 +95,6 @@
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabPageCandidates;
         private System.Windows.Forms.TabPage tabPageDepartments;
+        private System.Windows.Forms.TabPage tabPageOptions;
     }
 }

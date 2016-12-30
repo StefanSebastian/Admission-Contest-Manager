@@ -12,7 +12,7 @@ namespace contest.UI
 {
     public partial class HomePage : Form
     {
-        public HomePage(CandidateView candidateView, DepartmentView departmentView)
+        public HomePage(CandidateView candidateView, DepartmentView departmentView, OptionView optionView)
         {
             InitializeComponent();
 
@@ -21,15 +21,19 @@ namespace contest.UI
             this.IsMdiContainer = true;//contains child forms
             candidateView.TopLevel = false;//is child form
             departmentView.TopLevel = false;//is child form
+            optionView.TopLevel = false;//is child form
 
             candidateView.Parent = tabPageCandidates;
             departmentView.Parent = tabPageDepartments;
+            optionView.Parent = tabPageOptions;
 
             candidateView.Dock = DockStyle.Fill;
             departmentView.Dock = DockStyle.Fill;
+            optionView.Dock = DockStyle.Fill;
 
             candidateView.Visible = true;
-            departmentView.Visible = true;   
+            departmentView.Visible = true;
+            optionView.Visible = true;
         }
 
     }

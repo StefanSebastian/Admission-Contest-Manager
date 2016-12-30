@@ -34,11 +34,17 @@ namespace contest
             DepartmentFileRepository repositoryDepartment = new DepartmentFileRepository(validatorDepartment, "../../Data/Departments.txt");
             DepartmentController controllerDepartment = new DepartmentController(repositoryDepartment);
 
+            OptionValidator validatorOption = new OptionValidator();
+            OptionFileRepository repositoryOption = new OptionFileRepository(validatorOption, "../../Data/Options.txt",
+                                                                             repositoryDepartment, repositoryCandidate);
+            OptionController controllerOption = new OptionController(repositoryOption);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new HomePage(
                 new CandidateView(controllerCandidate), 
-                new DepartmentView(controllerDepartment)));
+                new DepartmentView(controllerDepartment),
+                new OptionView(controllerOption, controllerCandidate, controllerDepartment)));
         }
     }
 }
