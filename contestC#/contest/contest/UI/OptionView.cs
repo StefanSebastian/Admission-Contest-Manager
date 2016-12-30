@@ -213,15 +213,21 @@ namespace contest.UI
         {
             try
             {
-                Candidate selectedCandidateCombo = (Candidate)comboBoxCandidate.SelectedItem;
-                string idCandidate = selectedCandidateCombo.Id.ToString();
-                Department selectedDepartmentCombo = (Department)comboBoxDepartment.SelectedItem;
-                string idDepartment = selectedDepartmentCombo.Id.ToString();
-                optionController.add(idCandidate, idDepartment);
+                if (comboBoxCandidate.SelectedItem != null && comboBoxDepartment.SelectedItem != null)
+                {
+                    Candidate selectedCandidateCombo = (Candidate)comboBoxCandidate.SelectedItem;
+                    string idCandidate = selectedCandidateCombo.Id.ToString();
+                    Department selectedDepartmentCombo = (Department)comboBoxDepartment.SelectedItem;
+                    string idDepartment = selectedDepartmentCombo.Id.ToString();
+                    optionController.add(idCandidate, idDepartment);
 
-                setSelectedDepartment(selectedDepartmentCombo);
-                refreshSelectedDepartment();
-                refreshSelectedCandidate();
+                    setSelectedDepartment(selectedDepartmentCombo);
+                    refreshSelectedDepartment();
+                    refreshSelectedCandidate();
+                } else
+                {
+                    System.Windows.Forms.MessageBox.Show("You must select a candidate and a department.");
+                }
             } catch(RepositoryException exc)
             {
                 System.Windows.Forms.MessageBox.Show(exc.Message);

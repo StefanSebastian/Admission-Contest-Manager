@@ -123,6 +123,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\back.txt" />
     <Content Include="Data\Candidates.txt" />
     <Content Include="Data\Departments.txt">
       <SubType>Form</SubType>
