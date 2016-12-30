@@ -19,9 +19,7 @@ namespace contest.Validation.Tests
         public void validateValidOptionTest()
         {
             OptionValidator validator = new OptionValidator();
-            Department department = new Department(1, "name", 100);
-            Candidate candidate = new Candidate(1, "name", "1231231230", "asd 123");
-            Option opt = new Option(candidate, department);
+            Option opt = new Option(1, 1);
             try
             {
                 validator.validate(opt);
@@ -39,9 +37,7 @@ namespace contest.Validation.Tests
         public void validateInvalidReferenceTest()
         {
             OptionValidator validator = new OptionValidator();
-            Department department = new Department(1, "name", 100);
-            Candidate candidate = new Candidate(1, "name", "1231231230", "asd 123");
-            Option opt = new Option(candidate, department);
+            Option opt = new Option(1, 1);
             opt = null;
             try
             {
@@ -52,72 +48,6 @@ namespace contest.Validation.Tests
             {
                 Assert.IsTrue(true);
                 Assert.AreEqual(exc.Message, "Option is null pointer");
-            }
-        }
-
-        /*
-         * Validates null candidate
-         */
-        [TestMethod()]
-        public void validateInvalidCandidateTest()
-        {
-            OptionValidator validator = new OptionValidator();
-            Department department = new Department(1, "name", 100);
-            Candidate candidate = null;
-            Option opt = new Option(candidate, department);
-            try
-            {
-                validator.validate(opt);
-                Assert.IsTrue(false);
-            }
-            catch (ValidatorException exc)
-            {
-                Assert.IsTrue(true);
-                Assert.AreEqual(exc.Message, "Candidate is null pointer.\n");
-            }
-        }
-
-        /*
-         * Validates null department
-         */
-        [TestMethod()]
-        public void validateInvalidDepartmentTest()
-        {
-            OptionValidator validator = new OptionValidator();
-            Department department = null;
-            Candidate candidate = new Candidate(1, "name", "1231231230", "asd 123");
-            Option opt = new Option(candidate, department);
-            try
-            {
-                validator.validate(opt);
-                Assert.IsTrue(false);
-            }
-            catch (ValidatorException exc)
-            {
-                Assert.IsTrue(true);
-                Assert.AreEqual(exc.Message, "Department is null pointer.\n");
-            }
-        }
-
-        /*
-         * Validates null department, candidate
-         */
-        [TestMethod()]
-        public void validateInvalidDepartmentCandidateTest()
-        {
-            OptionValidator validator = new OptionValidator();
-            Department department = null;
-            Candidate candidate = null;
-            Option opt = new Option(candidate, department);
-            try
-            {
-                validator.validate(opt);
-                Assert.IsTrue(false);
-            }
-            catch (ValidatorException exc)
-            {
-                Assert.IsTrue(true);
-                Assert.AreEqual(exc.Message, "Candidate is null pointer.\nDepartment is null pointer.\n");
             }
         }
     }

@@ -12,6 +12,7 @@ namespace contest.Utils.Observer
     public interface Observable
     {
         void notifyObservers();
+        void notifyPushObservers(Object e);
         void addObserver(Observer o);
         void removeObserver(Observer o);
     }

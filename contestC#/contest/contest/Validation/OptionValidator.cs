@@ -19,13 +19,6 @@ namespace contest.Validation
             {
                 throw new ValidatorException("Option is null pointer");
             }
-            if (option.Candidate == null){
-                errors += "Candidate is null pointer.\n";
-            }
-            if (option.Department == null)
-            {
-                errors += "Department is null pointer.\n";
-            }
             if (errors.Length != 0)
             {
                 throw new ValidatorException(errors);

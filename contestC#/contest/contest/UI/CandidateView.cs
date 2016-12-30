@@ -168,5 +168,13 @@ namespace contest.UI
                 updateDataModel(controller.addressStartsWith(name));
             }
         }
+
+        /*
+         * Ignores push updates
+         */
+        public void pushUpdate(Object e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

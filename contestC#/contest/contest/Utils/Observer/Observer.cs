@@ -12,5 +12,7 @@ namespace contest.Utils.Observer
     public interface Observer
     {
         void update();
+
+        void pushUpdate(Object e);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using contest.Utils.Pair;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,41 +7,15 @@ using System.Threading.Tasks;
 
 namespace contest.Domain
 {
-    public class Option : HasID<Tuple<int, int>>
+    public class Option : HasID<Pair<int, int>>
     {
         //attributes
-        Tuple<int, int> id;
-        private Candidate candidate;
-        private Department department;
+        Pair<int, int> id;
+        private int idCandidate;
+        private int idDepartment;
 
         //getters and setters
-        public Candidate Candidate
-        {
-            get
-            {
-                return candidate;
-            }
-
-            set
-            {
-                candidate = value;
-            }
-        }
-
-        public Department Department
-        {
-            get
-            {
-                return department;
-            }
-
-            set
-            {
-                department = value;
-            }
-        }
-
-        public Tuple<int, int> Id
+        public Pair<int, int> Id
         {
             get
             {
@@ -48,21 +23,44 @@ namespace contest.Domain
             }
         }
 
-        //Constructor 
-        public Option(Candidate candidate, Department department)
+        public int IdCandidate
         {
-            this.candidate = candidate;
-            this.department = department;
-            if (candidate != null && department != null)
+            get
             {
-                this.id = new Tuple<int, int>(candidate.Id, department.Id);
+                return idCandidate;
             }
+
+            set
+            {
+                idCandidate = value;
+            }
+        }
+
+        public int IdDepartment
+        {
+            get
+            {
+                return idDepartment;
+            }
+
+            set
+            {
+                idDepartment = value;
+            }
+        }
+
+        //Constructor 
+        public Option(int idCandidate, int idDepartment)
+        {
+            this.idCandidate = idCandidate;
+            this.idDepartment = idDepartment;
+            this.id = new Pair<int, int>(idCandidate, idDepartment);
         }
 
         //To string method 
         public override string ToString()
         {
-            return "Candidate id " + id.Item1 + " with option id " + id.Item2;
+            return "Candidate id " + id.First + " with option id " + id.Second;
         }
 
         //Equals method 

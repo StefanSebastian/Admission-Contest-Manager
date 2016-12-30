@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace contest.UI
 {
-    public partial class DepartmentView : Form, Observer 
+    public partial class DepartmentView : Form, Observer
     {
         //controller
         private DepartmentController controller;
@@ -177,6 +177,14 @@ namespace contest.UI
                 }
                 
             }
+        }
+
+        /*
+         * Ignores push updates
+         */
+        public void pushUpdate(Object e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

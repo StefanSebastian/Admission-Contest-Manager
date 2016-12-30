@@ -12,7 +12,7 @@ namespace contest.Repository
      * Interface for repository classes 
      */
     public interface IRepository<E, ID> : Observable where E : HasID<ID>
-                                                     where ID : IComparable<ID>
+                                                        where ID : IComparable<ID>
     {
         void add(E entity);
         void delete(ID id);

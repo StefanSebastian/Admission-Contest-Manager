@@ -66,6 +66,7 @@
     <Compile Include="Repository\DepartmentRepository.cs" />
     <Compile Include="Repository\IFileRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\OptionFileRepository.cs" />
     <Compile Include="UI\CandidateView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,10 +88,12 @@
     <Compile Include="Utils\Observer\AbstractObservable.cs" />
     <Compile Include="Utils\Observer\Observable.cs" />
     <Compile Include="Utils\Observer\Observer.cs" />
+    <Compile Include="Utils\Pair\Pair.cs" />
     <Compile Include="Validation\CandidateFormatValidator.cs" />
     <Compile Include="Validation\CandidateValidator.cs" />
     <Compile Include="Validation\DepartmentFormatValidator.cs" />
     <Compile Include="Validation\DepartmentValidator.cs" />
+    <Compile Include="Validation\OptionFormatValidator.cs" />
     <Compile Include="Validation\OptionValidator.cs" />
     <Compile Include="Validation\Validator.cs" />
     <Compile Include="Exceptions\ValidatorException.cs" />

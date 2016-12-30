@@ -14,7 +14,7 @@ namespace contest.Repository
      * Abstract repository class 
      */
     public class AbstractRepository<E, ID> : AbstractObservable, IRepository<E, ID> where E : HasID<ID>
-                                                                                    where ID : IComparable<ID>
+                                                                                       where ID : IComparable<ID>
     {
         /*
          * List of save entities 

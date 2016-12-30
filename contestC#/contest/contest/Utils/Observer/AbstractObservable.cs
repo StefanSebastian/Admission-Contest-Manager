@@ -33,6 +33,17 @@ namespace contest.Utils.Observer
         }
 
         /*
+         * Notifies all push observers
+         */
+        public void notifyPushObservers(Object e)
+        {
+            foreach (Observer o in observers)
+            {
+                o.pushUpdate(e);
+            }
+        }
+
+        /*
          * Removes an observer
          */
         public void removeObserver(Observer o)
