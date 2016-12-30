@@ -62,6 +62,7 @@ namespace contest.Repository
             {
                 entities.Remove(entity);
                 notifyObservers();
+                notifyPushObservers(entity);
             }
         }
 

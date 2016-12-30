@@ -93,7 +93,6 @@ namespace contest.Repository
          */
         public void update()
         {
-            throw new NotImplementedException();
         }
 
         public void pushUpdate(Object e)

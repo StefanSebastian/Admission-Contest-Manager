@@ -32,5 +32,30 @@ namespace contest.Validation
                 throw new ValidatorException("Invalid format.");
             }
         }
+
+        public static void validateId(string id)
+        {
+            string[] tokens = id.Split(' ');
+            if (tokens.Count() != 2)
+            {
+                throw new ValidatorException("Invalid format.");
+            }
+
+            string id1 = tokens[0];
+            string id2 = tokens[0];
+            try
+            {
+                int idInt1 = int.Parse(id1);
+                int idInt2 = int.Parse(id2);
+            }
+            catch (FormatException exc)
+            {
+                throw new ValidatorException("Invalid format.");
+            }
+            catch (ArgumentNullException exc)
+            {
+                throw new ValidatorException("Invalid format.");
+            }
+        }
     }
 }

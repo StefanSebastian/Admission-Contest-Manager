@@ -184,7 +184,6 @@ namespace contest.UI
          */
         public void pushUpdate(Object e)
         {
-            throw new NotImplementedException();
         }
     }
 }
