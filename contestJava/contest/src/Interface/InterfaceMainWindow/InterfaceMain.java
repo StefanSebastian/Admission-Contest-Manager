@@ -7,10 +7,12 @@ import Domain.CandidateDataModel;
 import Interface.InterfaceCandidate.CandidateView;
 import Interface.InterfaceDepartment.DepartmentViewController;
 import Interface.InterfaceOption.OptionsViewController;
+import Interface.InterfaceReports.ReportsViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -45,11 +47,17 @@ public class InterfaceMain {
         OptionsViewController optionsViewController = loaderOption.getController();
         optionsViewController.initialize(controllerOption, controllerCandidate, controllerDepartment);
 
+        //gets the parent of reports view
+        FXMLLoader loaderReports = new FXMLLoader(InterfaceMain.class.getResource("../InterfaceReports/ReportsView.fxml"));
+        BorderPane reportParent = loaderReports.load();
+        ReportsViewController reportsViewController = loaderReports.getController();
+        reportsViewController.initialize(controllerOption, controllerDepartment, controllerCandidate);
+
         //gets the main window view
         FXMLLoader loaderMain = new FXMLLoader(InterfaceMain.class.getResource("MainWindow.fxml"));
         TabPane mainWindowParent = loaderMain.load();
         MainWindowController mainWindowController = loaderMain.getController();
-        mainWindowController.initialize(departmentParent, candidateParent, optionParent);
+        mainWindowController.initialize(departmentParent, candidateParent, optionParent, reportParent);
 
         //displays main window
         Scene scene = new Scene(mainWindowParent);

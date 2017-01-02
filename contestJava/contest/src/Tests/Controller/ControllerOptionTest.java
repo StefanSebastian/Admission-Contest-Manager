@@ -1,5 +1,7 @@
 package Tests.Controller;
 
+import Controller.ControllerCandidate;
+import Controller.ControllerDepartment;
 import Controller.ControllerOption;
 import Domain.Candidate;
 import Domain.Department;
@@ -30,6 +32,8 @@ public class ControllerOptionTest {
     private RepositoryDepartment repositoryDepartment;
     private RepositoryCandidate repositoryCandidate;
     private ControllerOption controllerOption;
+    private ControllerDepartment controllerDepartment;
+    private ControllerCandidate controllerCandidate;
 
     @Before
     public void setUp() throws Exception {
@@ -37,7 +41,9 @@ public class ControllerOptionTest {
         repositoryCandidate = new RepositoryCandidate(new ValidatorCandidate());
         repositoryOption = new RepositoryOption(new ValidatorOption(),
                 repositoryCandidate, repositoryDepartment);
-        controllerOption = new ControllerOption(repositoryOption);
+        controllerDepartment = new ControllerDepartment(repositoryDepartment);
+        controllerCandidate = new ControllerCandidate(repositoryCandidate);
+        controllerOption = new ControllerOption(repositoryOption, controllerCandidate, controllerDepartment);
     }
 
     @After
@@ -46,6 +52,8 @@ public class ControllerOptionTest {
         repositoryOption = null;
         repositoryCandidate = null;
         controllerOption = null;
+        controllerCandidate = null;
+        controllerDepartment = null;
     }
 
     @Test

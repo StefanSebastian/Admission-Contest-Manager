@@ -37,7 +37,7 @@ public class Main extends Application {
         //controllers
         ControllerCandidate controllerCandidate = new ControllerCandidate(repositoryCandidate);
         ControllerDepartment controllerDepartment = new ControllerDepartment(repositoryDepartment);
-        ControllerOption controllerOption = new ControllerOption(repositoryOption);
+        ControllerOption controllerOption = new ControllerOption(repositoryOption, controllerCandidate, controllerDepartment);
 
         //data models
         CandidateDataModel candidateDataModel = new CandidateDataModel(repositoryCandidate);
