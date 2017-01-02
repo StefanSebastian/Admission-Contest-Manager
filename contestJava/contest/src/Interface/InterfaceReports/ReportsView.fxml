@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-
 
 <BorderPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interface.InterfaceReports.ReportsViewController">
    <center>
@@ -16,7 +16,7 @@
               <columns>
                 <TableColumn fx:id="idDepartmentColumn" prefWidth="37.0" text="Id" />
                 <TableColumn fx:id="nameDepartmentColumn" prefWidth="109.0" text="Name" />
-                  <TableColumn fx:id="placesDepartmentColumn" prefWidth="116.0" text="Places" />
+                  <TableColumn fx:id="placesDepartmentColumn" prefWidth="112.0" text="Places" />
               </columns>
             </TableView>
             <TableView fx:id="candidateTableView" layoutX="290.0" layoutY="66.0" prefHeight="256.0" prefWidth="290.0">
@@ -27,11 +27,12 @@
                   <TableColumn fx:id="addressCandidateColumn" prefWidth="75.0" text="Address" />
               </columns>
             </TableView>
-            <Label layoutX="14.0" layoutY="27.0" text="Top " />
+            <Label layoutX="14.0" layoutY="36.0" text="Top " />
             <Label layoutX="336.0" layoutY="29.0" text="candidates for department" />
             <Label fx:id="numberOfCandidatesLabel" layoutX="300.0" layoutY="29.0" text="0" />
-            <TextField fx:id="filterTextField" layoutX="47.0" layoutY="23.0" onKeyReleased="#displayDepartmentsHandler" prefHeight="25.0" prefWidth="35.0" />
-            <Label layoutX="94.0" layoutY="27.0" text="Departments" />
+            <TextField fx:id="filterTextField" layoutX="47.0" layoutY="34.0" onKeyReleased="#displayDepartmentsHandler" prefHeight="25.0" prefWidth="35.0" />
+            <Label layoutX="96.0" layoutY="38.0" text="Departments" />
+            <Slider fx:id="departmentSlider" layoutX="26.0" layoutY="14.0" onMouseDragged="#departmentSliderHandler" />
          </children>
       </AnchorPane>
    </center>

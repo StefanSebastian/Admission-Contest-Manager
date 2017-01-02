@@ -63,6 +63,9 @@ public class ReportsViewController implements Observer {
     @FXML
     TextField filterTextField;
 
+    @FXML
+    Slider departmentSlider;
+
     /*
     Constructor
      */
@@ -97,7 +100,17 @@ public class ReportsViewController implements Observer {
         candidateTableView.setItems(candidateList);
         departmentTableView.setItems(departmentList);
 
+        updateDepartmentSliderValues();
+
         setDepartmentData(((Integer)controllerDepartment.size()).toString());//initializes with all departments
+    }
+
+    /*
+    Updates the possible values for the department slider
+     */
+    public void updateDepartmentSliderValues(){
+        departmentSlider.setMin(0);
+        departmentSlider.setMax(controllerDepartment.size());
     }
 
     //sets the top x departments in departments table
@@ -141,14 +154,37 @@ public class ReportsViewController implements Observer {
         setDepartmentData(x);
     }
 
+    /*
+    Handles slider value
+     */
+    @FXML
+    public void departmentSliderHandler(){
+        Integer sliderValue = ((Double)departmentSlider.getValue()).intValue();
+        filterTextField.setText(sliderValue.toString());
+        displayDepartmentsHandler();
+    }
+
     @Override
     public void update() {
         displayDepartmentsHandler();
         displayCandidatesHandler();
+        updateDepartmentSliderValues();
     }
 
+    //ignores push updates
     @Override
     public void pushUpdate(Object o) {
 
+    }
+
+    /*
+    Returns the currently displayed information
+     */
+    public List<DepartmentCandidates> getCurrentReport(){
+        List<DepartmentCandidates> report = new ArrayList<>();
+        for (Department d : departmentList){
+            report.add(new DepartmentCandidates(d, controllerOption.getCandidatesForDepartment(d.getId())));
+        }
+        return report;
     }
 }
