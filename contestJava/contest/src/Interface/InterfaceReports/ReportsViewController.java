@@ -6,15 +6,21 @@ import Controller.ControllerOption;
 import Domain.Candidate;
 import Domain.Department;
 import Domain.DepartmentCandidates;
+import Utils.FileSaver;
 import Utils.NumberCheck;
 import Utils.Observer;
+import Utils.ReportConverter;
 import Validator.ControllerException;
+import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +28,11 @@ import java.util.List;
  * Created by Sebi on 02-Jan-17.
  */
 public class ReportsViewController implements Observer {
+    /*
+    Primary stage
+     */
+    private Stage primaryStage;
+
     /*
     Entity controllers
      */
@@ -62,9 +73,13 @@ public class ReportsViewController implements Observer {
     Label numberOfCandidatesLabel;
     @FXML
     TextField filterTextField;
-
     @FXML
     Slider departmentSlider;
+
+    @FXML
+    Button saveReportsButton;
+    @FXML
+    ComboBox saveTypeCombobox;
 
     /*
     Constructor
@@ -75,7 +90,7 @@ public class ReportsViewController implements Observer {
     Initialize gui components
      */
     public void initialize(ControllerOption controllerOption, ControllerDepartment controllerDepartment,
-                           ControllerCandidate controllerCandidate){
+                           ControllerCandidate controllerCandidate, Stage primaryStage){
         this.controllerCandidate = controllerCandidate;
         this.controllerDepartment = controllerDepartment;
         this.controllerOption = controllerOption;
@@ -83,6 +98,9 @@ public class ReportsViewController implements Observer {
         this.controllerCandidate.addObserver(this);
         this.controllerDepartment.addObserver(this);
         this.controllerOption.addObserver(this);
+
+        //stage
+        this.primaryStage = primaryStage;
 
         //tables
         idCandidateColumn.setCellValueFactory(new PropertyValueFactory<Candidate, Integer>("id"));
@@ -101,6 +119,7 @@ public class ReportsViewController implements Observer {
         departmentTableView.setItems(departmentList);
 
         updateDepartmentSliderValues();
+        initializeSaveCombobox();
 
         setDepartmentData(((Integer)controllerDepartment.size()).toString());//initializes with all departments
     }
@@ -177,14 +196,67 @@ public class ReportsViewController implements Observer {
 
     }
 
+    // -------------- Report saving --------------
     /*
     Returns the currently displayed information
      */
-    public List<DepartmentCandidates> getCurrentReport(){
+    public List<DepartmentCandidates> getCurrentReportAsList(){
         List<DepartmentCandidates> report = new ArrayList<>();
         for (Department d : departmentList){
             report.add(new DepartmentCandidates(d, controllerOption.getCandidatesForDepartment(d.getId())));
         }
         return report;
     }
+
+    private File chooseFileOfExtension(String... extension){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select the file you wish to save to");
+
+        //set extension filter
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(extension[0], extension[1]);
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        return fileChooser.showSaveDialog(primaryStage);
+    }
+
+    /*
+    Save as button pressed
+     */
+    @FXML
+    public void saveReportButtonHandler(){
+        if (saveTypeCombobox.getSelectionModel().getSelectedItem() == null){//no format selected
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning dialog");
+            alert.setHeaderText("Invalid operation");
+            alert.setContentText("Select a format");
+            alert.showAndWait();
+            return;
+        }
+
+        String format = saveTypeCombobox.getSelectionModel().getSelectedItem().toString();
+        File file = null;
+        String data = "";
+        if (format.equals("Txt")){
+            file = chooseFileOfExtension("Text Files", "*.txt");
+            data = ReportConverter.convertText(getCurrentReportAsList());
+        }
+        if (format.equals("HTML")){
+            file = chooseFileOfExtension("HTML Files", "*.html");
+            data = ReportConverter.convertHTML(getCurrentReportAsList());
+        }
+        if (file == null){ //no file chosen
+            return;
+        }
+        FileSaver.save(file.getAbsolutePath(), data);
+    }
+
+    /*
+    Initializes values in combo box
+     */
+    private void initializeSaveCombobox(){
+        ObservableList<String> fileTypes = FXCollections.observableArrayList("Txt", "HTML");
+        saveTypeCombobox.setItems(fileTypes);
+    }
+
+    //--------------------------------------------
 }

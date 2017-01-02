@@ -51,7 +51,7 @@ public class InterfaceMain {
         FXMLLoader loaderReports = new FXMLLoader(InterfaceMain.class.getResource("../InterfaceReports/ReportsView.fxml"));
         BorderPane reportParent = loaderReports.load();
         ReportsViewController reportsViewController = loaderReports.getController();
-        reportsViewController.initialize(controllerOption, controllerDepartment, controllerCandidate);
+        reportsViewController.initialize(controllerOption, controllerDepartment, controllerCandidate, primaryStage);
 
         //gets the main window view
         FXMLLoader loaderMain = new FXMLLoader(InterfaceMain.class.getResource("MainWindow.fxml"));
