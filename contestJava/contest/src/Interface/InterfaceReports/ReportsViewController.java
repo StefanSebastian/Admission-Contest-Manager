@@ -14,10 +14,17 @@ import Validator.ControllerException;
 import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -80,6 +87,11 @@ public class ReportsViewController implements Observer {
     Button saveReportsButton;
     @FXML
     ComboBox saveTypeCombobox;
+
+    @FXML
+    Button pieChartButton;
+    @FXML
+    Button barChartButton;
 
     /*
     Constructor
@@ -256,6 +268,77 @@ public class ReportsViewController implements Observer {
     private void initializeSaveCombobox(){
         ObservableList<String> fileTypes = FXCollections.observableArrayList("Txt", "HTML");
         saveTypeCombobox.setItems(fileTypes);
+    }
+
+    //--------------------------------------------
+
+    //-------------Charts-------------------------
+    /*
+    Creates a pie chart of report data
+     */
+    @FXML
+    public void pieChartButtonHandler(){
+        //create a new window
+        Stage stage = new Stage();
+        stage.setTitle("Report chart");
+        Scene scene = new Scene(new Group());
+        stage.setWidth(500);
+        stage.setHeight(500);
+
+        //set data
+        List<DepartmentCandidates> report = getCurrentReportAsList();
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+        for (DepartmentCandidates departmentCandidates : report){
+            pieChartData.add(new PieChart.Data(departmentCandidates.getDepartment().getName(),
+                    departmentCandidates.getCandidateList().size()));
+        }
+
+        //create chart
+        final PieChart chart = new PieChart(pieChartData);
+        chart.setTitle("Departments");
+
+        //display window
+        ((Group) scene.getRoot()).getChildren().add(chart);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /*
+   Creates a bar chart of report data
+    */
+    @SuppressWarnings("unchecked")
+    @FXML
+    public void barChartButtonHandler(){
+        //create a new window
+        Stage stage = new Stage();
+        stage.setTitle("Report chart");
+        Scene scene = new Scene(new Group());
+        stage.setWidth(500);
+        stage.setHeight(500);
+
+        //create chart
+        CategoryAxis xAxis = new CategoryAxis();;
+        xAxis.setLabel("Departments");
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Number of candidates");
+        yAxis.setTickUnit(1.0);
+        BarChart barChart = new BarChart(xAxis, yAxis);
+
+        List<DepartmentCandidates> report = getCurrentReportAsList();
+
+        XYChart.Series dataSeries = new XYChart.Series();
+
+        //get data
+        for (DepartmentCandidates departmentCandidates : report){
+            dataSeries.getData().add(new XYChart.Data(departmentCandidates.getDepartment().getName(),
+                    departmentCandidates.getCandidateList().size()));
+        }
+        barChart.getData().add(dataSeries);
+
+        //show window
+        ((Group) scene.getRoot()).getChildren().add(barChart);
+        stage.setScene(scene);
+        stage.show();
     }
 
     //--------------------------------------------
