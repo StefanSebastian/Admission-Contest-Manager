@@ -49,11 +49,16 @@ namespace contest.Controller
 
         /*
          * Filters the departments with a number of places greater than the given number
+         * orders them by name 
          */
          public List<Department> numberOfPlacesGreaterThan(int number)
         {
-            Predicate<Department> filter = (x) => x.NumberOfPlaces >= number;
-            return genericFilter(getAll(), filter);
+            //Predicate<Department> filter = (x) => x.NumberOfPlaces >= number;
+            //List<Department> filtered = genericFilter(getAll(), filter);
+
+            var filtered = getAll().Where(d => d.NumberOfPlaces >= number).ToList();
+            List<Department> sorted = genericSort(filtered, (x, y) => x.Name.CompareTo(y.Name));
+            return sorted;
         }
     }
 }

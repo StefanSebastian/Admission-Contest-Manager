@@ -81,6 +81,15 @@ namespace contest.Controller
         }
 
         /*
+         * Generic sort method
+         */
+         public List<E> genericSort(List<E> entities, Comparison<E> comp)
+        {
+            entities.Sort(comp);
+            return entities;
+        }  
+
+        /*
          * Adds observer to repository
          */
          public void addObserver(Observer e)

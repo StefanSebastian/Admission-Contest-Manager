@@ -52,8 +52,13 @@ namespace contest.Controller
          */
          public List<Candidate> addressStartsWith(string name)
         {
-            Predicate<Candidate> addressFilter = (x) => x.Address.StartsWith(name);
-            return genericFilter(getAll(), addressFilter);
+            //Predicate<Candidate> addressFilter = (x) => x.Address.StartsWith(name);
+            //return genericFilter(getAll(), addressFilter);
+
+            var result = from candidate in getAll()
+                         where candidate.Address.StartsWith(name)
+                         select candidate;
+            return result.ToList();
         }
 
     }
